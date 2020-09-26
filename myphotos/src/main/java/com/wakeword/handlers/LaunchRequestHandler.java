@@ -4,7 +4,6 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
-import com.wakeword.dto.Customer;
 import com.wakeword.dto.CustomerManager;
 import com.wakeword.main.Constants;
 import org.slf4j.Logger;
@@ -18,7 +17,7 @@ public class LaunchRequestHandler implements RequestHandler  {
         return input.matches(requestType(LaunchRequest.class));
     }
     public Optional<Response> handle(HandlerInput input) {
-        
+    	LOG.debug("BEFORE GOOGLE TOKEN = ");
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	LOG.debug("GOOGLE TOKEN = " + googleToken);
 		//String awsConsentToken = input.getRequestEnvelope().getContext().getSystem().getApiAccessToken();

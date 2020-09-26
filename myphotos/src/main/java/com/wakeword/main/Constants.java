@@ -28,7 +28,7 @@ public class Constants {
 	public static final String HELP = "You can ask me to open a photo album or view images by saying next or previous.";
 	public static final String HELP_REPROMPT = "Do you want to see recent photos?";
 	public static final String MY_PHOTOS = "My Photos";
-	public static final String FIRST_VISIT = "Welcome to My Photos! Do you want to your most recent albums, or photos?";
+	public static final String FIRST_VISIT = "Welcome to My Photos! Do you want to view your most recent albums, or photos?";
 	public static final String NO_RESPONSE = "Ok.  Perhaps another time.";
 	
 	//S3 bucket for persistence of reading list by Alexa account ID
