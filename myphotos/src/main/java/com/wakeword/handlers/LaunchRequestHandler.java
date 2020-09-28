@@ -6,6 +6,8 @@ import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 import com.wakeword.dto.CustomerManager;
 import com.wakeword.main.Constants;
+import com.wakeword.util.GoogleMediator;
+
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
 import java.util.Optional;
@@ -17,9 +19,17 @@ public class LaunchRequestHandler implements RequestHandler  {
         return input.matches(requestType(LaunchRequest.class));
     }
     public Optional<Response> handle(HandlerInput input) {
-    	LOG.debug("BEFORE GOOGLE TOKEN = ");
+
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	LOG.debug("GOOGLE TOKEN = " + googleToken);
+    	if (googleToken == null)
+    	{
+    		// put up account linking card and get out
+    	} else {
+    		boolean isValid = GoogleMediator.validatetoken(googleToken);
+    	}
+    		
+    	
 		//String awsConsentToken = input.getRequestEnvelope().getContext().getSystem().getApiAccessToken();
     	String userId = input.getRequestEnvelope().getContext().getSystem().getUser().getUserId();
 	 	CustomerManager m = new CustomerManager(userId);
