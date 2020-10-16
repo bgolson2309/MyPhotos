@@ -21,19 +21,19 @@ public class LaunchRequestHandler implements RequestHandler  {
     public Optional<Response> handle(HandlerInput input) {
 
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
-    	LOG.debug("GOOGLE TOKEN = " + googleToken);
+    	LOG.debug("GOOGLE ACCESS-TOKEN = " + googleToken);
     	if (googleToken == null)
     	{
     		// put up account linking card and get out
     	} else {
-    		boolean isValid = GoogleMediator.validatetoken(googleToken);
+    		//GoogleMediator.validatetoken(googleToken);
+    		GoogleMediator.list(googleToken);
     	}
     		
-    	
-		//String awsConsentToken = input.getRequestEnvelope().getContext().getSystem().getApiAccessToken();
-    	String userId = input.getRequestEnvelope().getContext().getSystem().getUser().getUserId();
-	 	CustomerManager m = new CustomerManager(userId);
-	 	boolean customerExists = m.hasCustomer(userId);  // object in S3?
+//		String awsConsentToken = input.getRequestEnvelope().getContext().getSystem().getApiAccessToken();
+//    	String userId = input.getRequestEnvelope().getContext().getSystem().getUser().getUserId();
+//	 	CustomerManager m = new CustomerManager(userId);
+//	 	boolean customerExists = m.hasCustomer(userId);  // object in S3?
 
         return input.getResponseBuilder()
                 .withSpeech(Constants.FIRST_VISIT)

@@ -14,6 +14,9 @@ public class SessionEndedRequestHandler implements RequestHandler  {
         return input.matches(requestType(SessionEndedRequest.class));
     }
     public Optional<Response> handle(HandlerInput input) {
-        return input.getResponseBuilder().build();
-    }
+    	SessionEndedRequest request = (SessionEndedRequest) input.getRequestEnvelope().getRequest();
+        if(null!=request.getError()) {
+            System.out.println("Error Message: "+request.getError().getMessage());
+        }
+        return input.getResponseBuilder().build();    }
 }
