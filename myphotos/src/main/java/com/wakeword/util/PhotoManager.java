@@ -49,7 +49,7 @@ public class PhotoManager {
     	      .setHeader("Authorization", " Bearer " + token)
     	      .GET()
     	      .build();
-    	
+    	  
     	HttpResponse<String> response = null;
 		try {
 			response = client.send(request, HttpResponse.BodyHandlers.ofString());
