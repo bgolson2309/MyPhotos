@@ -46,7 +46,7 @@ public class PhotoManager {
     	HttpClient client = HttpClient.newHttpClient();
     	HttpRequest request = HttpRequest.newBuilder()
     	      .uri(URI.create("https://photoslibrary.googleapis.com/v1/albums"))
-    	      .setHeader("Authorization:", " Bearer " + token)
+    	      .setHeader("Authorization", " Bearer " + token)
     	      .GET()
     	      .build();
     	
