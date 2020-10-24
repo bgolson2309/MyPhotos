@@ -19,18 +19,6 @@
           <type>pom</type>
           <scope>import</scope>
         </dependency>
-        <dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava</artifactId>
-    		<version>29.0-jre</version>
-		    <scope>compile</scope>
-		</dependency>
-		<dependency>
-		    <groupId>com.google.oauth-client</groupId>
-		    <artifactId>google-oauth-client</artifactId>
-		    <version>1.31.0</version>
-		    <scope>compile</scope>
-		</dependency>
     </dependencies>
   	</dependencyManagement>
   	    <dependencies>
@@ -60,64 +48,11 @@
 		    <version>2.6.1</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.google.photos.library</groupId>
-		  <artifactId>google-photos-library-client</artifactId>
-		  <version>1.6.0</version>
-		</dependency>
-		<dependency>
 	    	<groupId>io.fastjson</groupId>
 	    	<artifactId>boon</artifactId>
 	   		<version>0.34</version>
 		</dependency>
-		<dependency>
-		    <groupId>com.google.api-client</groupId>
-		    <artifactId>google-api-client</artifactId>
-		    <version>1.30.3</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.google.http-client</groupId>
-		    <artifactId>google-http-client</artifactId>
-		    <version>1.35.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>commons-logging</groupId>
-		    <artifactId>commons-logging</artifactId>
-		    <version>1.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.google.code.gson</groupId>
-		    <artifactId>gson</artifactId>
-		    <version>2.8.6</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpclient</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpcore</artifactId>
-		    </dependency>
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-core</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.google.code.findbugs</groupId>
-		    <artifactId>jsr305</artifactId>
-		    <version>3.0.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.google.protobuf</groupId>
-		    <artifactId>protobuf-java</artifactId>
-		    <version>3.11.4</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.ogce</groupId>
-		    <artifactId>xpp3</artifactId>
-		    <version>1.1.6</version>
-		</dependency>
-		
-  		</dependencies>
+  	</dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <pluginManagement>
