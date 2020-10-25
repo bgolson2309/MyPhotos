@@ -10,12 +10,7 @@ import com.wakeword.util.PhotoManager;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpRequest.BodyPublishers;
-import java.net.http.HttpResponse;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.requestType;
@@ -26,8 +21,15 @@ public class LaunchRequestHandler implements RequestHandler  {
     }
     public Optional<Response> handle(HandlerInput input) {
 
+    	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
+    	if (persistentAttributes.containsKey("PremiumAccess")) {
+    		LOG.debug("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
+    	}
     	LOG.debug("GOOGLE ACCESS-TOKEN = " + googleToken);
+    	
+    	String albums = null;
+    	boolean hasPremiumAccess = false;
     	
     	if (googleToken == null)
     	{
@@ -40,15 +42,17 @@ public class LaunchRequestHandler implements RequestHandler  {
                     .build();    	
         } else {
     		boolean isValid = PhotoManager.validateToken(googleToken);
-    		String albums = PhotoManager.listAlbums(googleToken);
+    		albums = PhotoManager.listAlbums(googleToken);
     		System.out.println("ALBUM LIST = " + albums);
     		String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
     		System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
 
     	}
-    		
-//		String awsConsentToken = input.getRequestEnvelope().getContext().getSystem().getApiAccessToken();
-
+    	
+    	// test saving album list on session and bought access on Persistent layer
+    	input.getAttributesManager().getSessionAttributes().put("AlbumList", albums);
+    	input.getAttributesManager().getPersistentAttributes().put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
+    	 
         return input.getResponseBuilder()
                 .withSpeech(Constants.FIRST_VISIT)
                 .withSimpleCard(Constants.MY_PHOTOS, Constants.FIRST_VISIT)

@@ -8,17 +8,17 @@ import com.wakeword.main.Constants;
 import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
-
-public class CancelandStopIntentHandler implements RequestHandler {
+public class YesIntentHandler implements RequestHandler {
 
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName(Constants.AMAZON_STOP_INTENT).or(intentName(Constants.AMAZON_CANCEL_INTENT)));
+        return input.matches(intentName(Constants.AMAZON_YES_INTENT));
     }
     public Optional<Response> handle(HandlerInput input) {
+    	String sessionKey = "AlbumList";
+    	String albumList = (String) input.getAttributesManager().getSessionAttributes().get(sessionKey);
+    	String speechText = "The length of data in Album List is" + albumList.length();
     	
-    	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
-    	
-        String speechText = Constants.GOODBYE;
+    	//String speechText = Constants.NO_RESPONSE;
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard(Constants.MY_PHOTOS, speechText)

@@ -15,6 +15,7 @@ public class MyPhotosStreamHandler extends SkillStreamHandler {
                         new CancelandStopIntentHandler(),
                         new HelpIntentHandler(),
                         new NoIntentHandler(),
+                        new YesIntentHandler(),
                         new FallbackIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
@@ -24,6 +25,8 @@ public class MyPhotosStreamHandler extends SkillStreamHandler {
                 .addExceptionHandler(new GenericExceptionHandler())
                 .addRequestInterceptor(new RequestLogInterceptor())
                 .addResponseInterceptor(new ResponseLogInterceptor())
+                .withAutoCreateTable(true)
+                .withTableName("MyPhotos")
                 .build();
     }
     public MyPhotosStreamHandler() {

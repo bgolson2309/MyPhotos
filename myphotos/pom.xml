@@ -52,6 +52,11 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.11.3</version>
 		</dependency>
+		<dependency>
+		  <groupId>com.amazon.alexa</groupId>
+		  <artifactId>ask-sdk-dynamodb-persistence-adapter</artifactId>
+		  <version>2.27.1</version>
+</dependency>
   	</dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
