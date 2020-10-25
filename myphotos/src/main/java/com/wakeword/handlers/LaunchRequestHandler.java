@@ -4,7 +4,6 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
-import com.wakeword.dto.CustomerManager;
 import com.wakeword.main.Constants;
 import com.wakeword.util.PhotoManager;
 
@@ -42,13 +41,13 @@ public class LaunchRequestHandler implements RequestHandler  {
         } else {
     		boolean isValid = PhotoManager.validateToken(googleToken);
     		String albums = PhotoManager.listAlbums(googleToken);
-    		System.out.println(albums);
+    		System.out.println("ALBUM LIST = " + albums);
+    		String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
+    		System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
+
     	}
     		
 //		String awsConsentToken = input.getRequestEnvelope().getContext().getSystem().getApiAccessToken();
-//    	String userId = input.getRequestEnvelope().getContext().getSystem().getUser().getUserId();
-//	 	CustomerManager m = new CustomerManager(userId);
-//	 	boolean customerExists = m.hasCustomer(userId);  // object in S3?
 
         return input.getResponseBuilder()
                 .withSpeech(Constants.FIRST_VISIT)
