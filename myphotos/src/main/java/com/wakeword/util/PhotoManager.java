@@ -47,6 +47,10 @@ public class PhotoManager {
         return response.body().contains("https://www.googleapis.com/auth/photoslibrary.readonly");
     }
 
+    /*
+     * Will be {} if no albums
+     * https://developers.google.com/photos/library/reference/rest/v1/albums/list
+     */
     public static String listAlbums(String token)
     {
     	HttpClient client = HttpClient.newHttpClient();
@@ -61,7 +65,7 @@ public class PhotoManager {
 			
 			response = client.send(request, HttpResponse.BodyHandlers.ofString());
 		} catch (IOException | InterruptedException e) {
-			e.printStackTrace();
+			System.out.println(e.getStackTrace());
 		}
 
         return response.body();

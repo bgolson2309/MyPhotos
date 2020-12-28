@@ -23,10 +23,16 @@ public class LaunchRequestHandler implements RequestHandler  {
 
     	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
-    	if (persistentAttributes.containsKey("PremiumAccess")) {
-    		LOG.debug("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
+    	System.out.println("*** GOOGLE ACCESS-TOKEN = " + googleToken);
+    	
+    	try {
+        	if (persistentAttributes.containsKey("PremiumAccess")) {
+        		System.out.println("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
+        	}
+    	} catch (Exception e) {
+    		System.out.println(e.getStackTrace());
     	}
-    	LOG.debug("GOOGLE ACCESS-TOKEN = " + googleToken);
+
     	
     	String albums = null;
     	boolean hasPremiumAccess = false;
@@ -41,7 +47,9 @@ public class LaunchRequestHandler implements RequestHandler  {
                     .withLinkAccountCard()
                     .build();    	
         } else {
-    		boolean isValid = PhotoManager.validateToken(googleToken);
+    		if(PhotoManager.validateToken(googleToken)) {
+    			System.out.println("Google token is valid");
+    		}
     		albums = PhotoManager.listAlbums(googleToken);
     		System.out.println("ALBUM LIST = " + albums);
     		String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
