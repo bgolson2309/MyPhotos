@@ -36,6 +36,7 @@ public class LaunchRequestHandler implements RequestHandler  {
     	
     	String albums = null;
     	boolean hasPremiumAccess = false;
+    	persistentAttributes.put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
     	
     	if (googleToken == null)
     	{
@@ -49,17 +50,20 @@ public class LaunchRequestHandler implements RequestHandler  {
         } else {
     		if(PhotoManager.validateToken(googleToken)) {
     			System.out.println("Google token is valid");
+        		albums = PhotoManager.listAlbums(googleToken);
+        		System.out.println("ALBUM LIST = " + albums);
+        		String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
+        		System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
+    		} else {
+    			// handle
     		}
-    		albums = PhotoManager.listAlbums(googleToken);
-    		System.out.println("ALBUM LIST = " + albums);
-    		String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
-    		System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
-
     	}
     	
     	// test saving album list on session and bought access on Persistent layer
     	input.getAttributesManager().getSessionAttributes().put("AlbumList", albums);
-    	input.getAttributesManager().getPersistentAttributes().put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
+    	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
+    	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
+
     	 
         return input.getResponseBuilder()
                 .withSpeech(Constants.FIRST_VISIT)
