@@ -28,14 +28,16 @@
                 "secondaryText": "Photos: 104",
                 "imageAlignment": "right",
                 "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_YnfX69_ASjs0qZQGCHFWK_RG5do0MFPPOfoRUkXCgbINOhux-9ByaS6-reBFrzLCJZz_MX-Oo9Z2O0NH6aw2yFBrrKaH7Y8GRPTMiuY7YTHIBGkfUqYDubCsZPGtVa8Z3kDFEUPK3L7qgiAE0Pp8djD6_yRtDSbZfwYGkFPU4XAVZbLvjPyxGi8Fs267Jk5gxEcs_tJboAUF53pvkiA2xQZHbUDQIm7CLx88ceOXk9hlphMe4WxpsnFracd9WNgWUFr3XdhMIuIqEJMiBltgaSJib4R2O_NXq1e9UOIzCuB7WiAeikQdYPP_0lFEKDEDmze_5-pBTG8bkVXT41C-hqOnCj-1CggvonWbeD_6noAOlUuq-T5AvVIxUgJnDce-2tqtJRge8CptyQfDM4T5ANXaFcvy711k4yMMIJ6VgsdrP9_yIf4f0XCoMKQ2wvl80iUMkOLR24AvgzaJNflKsG2IV4OKxQ5dVWzUC0TBaQgM3frTxmsdengvHogMX_NWdIaA_j-bCmJe5uUu8DYt27PV_jHByiIrBDf8Ic_n-ZNeyGzgYVzeTFYy0q-dr8sHSmmvS5CUOZyswjsdc5c3Z6IasziVX60a5xCkQd1seHPglRZY63jzq7SjEbHNIBkjZbqZdYncI1hApOa4okGio24PtEjcmdxDdMBXwrOBONRqCQuhKyhILk8aQw43gCkH16gu0g4CFWx27BPn4p_fS5zK3f2HIF34bX50T2OtePZ8bhvGDlMBrY0g8NAi93Gax35b5Uzrq70v_iL9zLVpIOi1Dbs5sbCTHL-HkiidLdc6jz_uzAitKJ",
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "cheeseList",
-                        "property": "headerTitle",
-                        "value": "${payload.imageListData.listItems[0].primaryText} is selected"
-                    }
-                ]
+                "primaryAction": {
+				    "type": "SendEvent",
+				        "arguments": [
+					      "AlbumListItemSelected",
+					      "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj"
+					    ],
+					    "components": [
+					        "AlbumListItemSelected"
+					      ]
+				  }
             },
             {
                 "primaryText": "Redwood NP",

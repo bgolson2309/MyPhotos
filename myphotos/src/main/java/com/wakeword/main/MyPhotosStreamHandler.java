@@ -19,6 +19,7 @@ public class MyPhotosStreamHandler extends SkillStreamHandler {
                         new FallbackIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
+                        new AlbumImagesEventHandler(),
                         new UnhandledIntentHandler())
                 .withSkillId("amzn1.ask.skill.02fcabf1-98e3-4102-8c97-c98808a5b3e0")
                 .addExceptionHandler(new ServiceExceptionHandler())
