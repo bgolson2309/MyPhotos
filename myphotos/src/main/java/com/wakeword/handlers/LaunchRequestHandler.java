@@ -59,10 +59,11 @@ public class LaunchRequestHandler implements RequestHandler  {
         } else {
     		if(PhotoManager.validateToken(googleToken)) {
     			System.out.println("Google token is valid");
-        		albums = PhotoManager.listAlbums(googleToken);
-        		System.out.println("ALBUM LIST = " + albums);
         		String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
         		System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
+        		albums = PhotoManager.listAlbums(googleToken);
+        		System.out.println("ALBUM LIST = " + albums);
+
     		} else {
     			// handle invalid google token case
     		}

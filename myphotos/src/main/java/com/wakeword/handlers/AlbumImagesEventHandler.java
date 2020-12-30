@@ -8,6 +8,8 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.UserEventHandler;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.interfaces.alexa.presentation.apl.UserEvent;
+import com.amazon.ask.model.interfaces.viewport.Shape;
+import com.amazon.ask.model.interfaces.viewport.ViewportState;
 
 public class AlbumImagesEventHandler implements UserEventHandler {
 
@@ -22,8 +24,12 @@ public class AlbumImagesEventHandler implements UserEventHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input, UserEvent userEvent) {
-
-        String speechText = "Thank you for clicking the button! I imagine you already noticed that the text faded away. Tell me to start over to bring it back!";
+    	  ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
+    	  Shape shape = viewportState.getShape();
+    	  int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
+    	  int currentPixelHeight = viewportState.getCurrentPixelHeight().intValueExact();
+    	  
+    	  String speechText = "Thank you for clicking the button! I imagine you already noticed that the text faded away. Tell me to start over to bring it back!";
         
         return input.getResponseBuilder()
             .withSpeech(speechText)
