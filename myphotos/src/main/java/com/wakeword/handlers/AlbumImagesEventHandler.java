@@ -15,12 +15,9 @@ public class AlbumImagesEventHandler implements UserEventHandler {
     public boolean canHandle(HandlerInput input, UserEvent userEvent) {      
         // This is a typed handler, so it only runs for UserEvents. Since an APL skill might have multiple controls that generate UserEvents,
         // use the an argument to track the control source - in this case the AlbumImageList 
-    	
-        Map<String,Object> eventSourceObject = (Map<String,Object>) userEvent.getSource();
         ArrayList argumentsObject =  (ArrayList) userEvent.getArguments();
         String eventSourceId = (String) argumentsObject.get(0);
         return eventSourceId.equals("AlbumListItemSelected");
-        //return true;
     }
 
     @Override
