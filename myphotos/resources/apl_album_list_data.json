@@ -21,11 +21,11 @@
                 }
             ]
         },
-        "title": "Google Photos: Albums",
+        "title": "Photo Albums:",
         "listItems": [
             {
                 "primaryText": "Utah 2019",
-                "secondaryText": "Images: 104",
+                "secondaryText": "Photos: 104",
                 "imageAlignment": "right",
                 "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_YnfX69_ASjs0qZQGCHFWK_RG5do0MFPPOfoRUkXCgbINOhux-9ByaS6-reBFrzLCJZz_MX-Oo9Z2O0NH6aw2yFBrrKaH7Y8GRPTMiuY7YTHIBGkfUqYDubCsZPGtVa8Z3kDFEUPK3L7qgiAE0Pp8djD6_yRtDSbZfwYGkFPU4XAVZbLvjPyxGi8Fs267Jk5gxEcs_tJboAUF53pvkiA2xQZHbUDQIm7CLx88ceOXk9hlphMe4WxpsnFracd9WNgWUFr3XdhMIuIqEJMiBltgaSJib4R2O_NXq1e9UOIzCuB7WiAeikQdYPP_0lFEKDEDmze_5-pBTG8bkVXT41C-hqOnCj-1CggvonWbeD_6noAOlUuq-T5AvVIxUgJnDce-2tqtJRge8CptyQfDM4T5ANXaFcvy711k4yMMIJ6VgsdrP9_yIf4f0XCoMKQ2wvl80iUMkOLR24AvgzaJNflKsG2IV4OKxQ5dVWzUC0TBaQgM3frTxmsdengvHogMX_NWdIaA_j-bCmJe5uUu8DYt27PV_jHByiIrBDf8Ic_n-ZNeyGzgYVzeTFYy0q-dr8sHSmmvS5CUOZyswjsdc5c3Z6IasziVX60a5xCkQd1seHPglRZY63jzq7SjEbHNIBkjZbqZdYncI1hApOa4okGio24PtEjcmdxDdMBXwrOBONRqCQuhKyhILk8aQw43gCkH16gu0g4CFWx27BPn4p_fS5zK3f2HIF34bX50T2OtePZ8bhvGDlMBrY0g8NAi93Gax35b5Uzrq70v_iL9zLVpIOi1Dbs5sbCTHL-HkiidLdc6jz_uzAitKJ",
                 "primaryAction": [
@@ -38,13 +38,10 @@
                 ]
             },
             {
-                "primaryText": "Mozzarella",
-                "secondaryText": "Country: Italy",
-                "ratingSlotMode": "multiple",
-                "ratingNumber": 4.5,
-                "ratingText": "(143)",
+                "primaryText": "Redwood NP",
+                "secondaryText": "Photos: 26",
                 "imageAlignment": "left",
-                "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v2/cheese_mozzarella.jpg",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_YdemslmPfmFjYpEXAc22M3IhiU9k2qXwm4qDYZ6Z-Jvlybk_vbm3WA6EqGVWyeTeHVJw2oC1CpwV0F46-NDQabUtOkA0XH9xfWxvPeocShKApvU44iZZojRqaUskbmrLhVgDA_8Ln7AO9AB3h_aPRIXh6E_K9rQzE8TaRf2OOUt4H9lhFS_-VhKB4vSbVXIYeW3SLsZv2Q7yy7UG7HuHiCCNeGENhdhdra8sfxU2uAhDehgpJ0TmAlHYv6BFwV3CRl5N-pbUpMQkcRzBWOz6oUdbnO5tME6H6jDZirMgqyNHPLyxiLms2BQC3p9W8qeLZP1CXmna4UyOwiY1Gnu9c5HPT8Y0BZpq546_9uKBt1z8kxDC968ovPHW6WpkgSlr5nQ_SxXIGQDeNx-8Pksqu-WGw9Ls2nF15fqDaBE-IKfvH--U2CAiIgRjIuDHhIdC8mwh_SjKtCztIBfxEa-PSX6c1ywuuTFtzzqZB_o2oYiJ0Iz3DKkAmVoyx2ApTUUWM0v-ObmPN_bMcjy_jwnpCQYUKIZhjpi5aKfLSx38s3HHyda6OlfkPjEZStvKnHFED7nMkEMlHFQwTDAEaf-gm9WDdXDzYew_zbNb077yCq9SchRN4syuRiyMckiucbGcJYbT9KYmHcghJkvyhaxX9XNrDtHqcVkKXINqoMuVspV0mC_Ja3n7EfOjCqbimYhKLrS8Rc35UY0JN_MIQQzRH7dIzCWcCPRhxkWdwfAX6XzylnKR2HIQVYwtXjkPjX195-iYXRFk6pPjTwSMRtzSZhdn3nXzpCdeOQyxgn8Mztwj7Mkb-JL-vL",
                 "primaryAction": [
                     {
                         "type": "SetValue",
@@ -55,13 +52,10 @@
                 ]
             },
             {
-                "primaryText": "Blue Cheese",
-                "secondaryText": "Country: France",
-                "ratingSlotMode": "multiple",
-                "ratingNumber": 3.2,
-                "ratingText": "(25)",
+                "primaryText": "RMNP 2018",
+                "secondaryText": "Photos: 48",
                 "imageAlignment": "left",
-                "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v2/cheese_blue.jpg",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_arTvIfpRbshPMtjbgjIMDg1LXlO-meOErBGKoltz6xjBVsHnn8DiKRm6rZeQmjyU9aIrq4PVdWLBHz4yFUPiDyAF181H3fOCgD9pmSH95UWYtYS_4CfEHS4gZbvR2DfZL9igNJAzrGdgG0AAK8EG4-3PdtAb1qLFl_FLWHatyldnPDQpog6Vz5nxGfUu8o7s9lyef_QfhL4VniQWrervfL6q9vKNoh15KW1BhC3SaoFBveqlhfuBiFIDiBbY_PVOEv1KQHIWQcWcF9mrLoo2S5zyJvY2nAaMfUezx3tuIh7VFqpARBUazN-RULH3oIUFXEgkGtMr0IgvRli2XUPBxuO9h7t466QE8yt_sB4JAo7hlI2Huw_GV3Xv7xf9y38hW3Js5HxsoYtihS2t1FTHIkv2LmGtOfe2LZC_nWVSRnMjJD8Hu3ucXe4OtchDcYb88r90UqpsdwXp6PrXdT_k5-j4Wu9JlGBDfkR7Urk-b-9qORux_-VE6PhCV00lzb2g78B80RLHafWny8teExyN7tVGhEy6-undNaBl7mIwxHnr-KJQZK6VwSjzZHRzhYr4I6JTLMaxpUCowVPrbHHwxHdksgUUymAIVkmgMZ8gTL7ptaNV3XOUIz5api3ZKFlVT19jz34WdvyAVKrPNWkg9Z4JrsTFFAOIaQ7dMpRDEbt3C0Qh4AvuXgFBMQ6A_Jw8_Uo5_sYaiM5oYqjActkYrD-ky-5qCnrbwm1XQ0ipUwOMXvfsm2ZCPPbIwsCiiQdBU_OeXMUB4IB5HdLuzd0wuRKp1Erz4X1mKJ5Nh5oV4wKCtMdKbc99nh",
                 "primaryAction": [
                     {
                         "type": "SetValue",
@@ -72,12 +66,9 @@
                 ]
             },
             {
-                "primaryText": "Brie",
-                "secondaryText": "Country: France",
-                "ratingSlotMode": "multiple",
-                "ratingNumber": 4.2,
-                "ratingText": "(435)",
-                "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v2/cheese_brie.jpg",
+                "primaryText": "AZ 2018",
+                "secondaryText": "Photos: 10",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_bbKt5fv-vexX5xU8JJnJwmBxk1zEDdxe_G-dSCyMk-GJfGIx-yPksg3H4h6qE45bOF9ZcRahOPItJVMcMmYs1te5onxxDb9BC9bpVghozFi5N-QxM1mQV789mUvkZHVr6N0KLvi-eLDB6rXDRTTNVl1kUThLcxT60gtMbsaPiECAPP3scoC-EnkSfOlDhx2bvqnUExyVpsizGLtsrJGMBNVNf2Zmim9WvafU7c2h7h-fqQ41YNlZ_ZK17mFzcdBB0DF59R2mzapPQCAUWs1McNCq9XD8I9ZsZP2cagC8FbjzsEjGvZh-jf3TIfL5Pyk79vKujHk8ylfB9PskdHXS--83QMoWbv6r1iaaYxGR__OAES9D3k_8D6UNjtZGCQBmN-36UZe4fqTDr_8FIEXoBuox-iVhGdVFxGTa665hpV6WHhS0TonZ1I51Qd5R_A4OJGnVZN-n_GVhe3cwUwb1sWh8skdJykyAXuuhOYAz_zq0osg45ulOeJS8YdEZdFWXh-wMTZ0-mdlXtXgW70oVU79kmsTgdxgp4Ip-t2lqkCCYO0BUMbgpLNislgDpgbJQofcRGlTzYRXHKOYD03XxZJRNJq0LeKPRz3JoKJM4P54XoNmnGr40aVCW1jt81pbnJ60YHYeBo9TVfQA96y5GnLkn9X2a1ml2dVEYzK8WgF6GuUw9KLPoUVRCHW0ywJxzlrsV4CIE_hfNWEVNwg1pknrTLUNYQj5RJCul8sVWB6N-w30st4oiHfNs62C7d5kTawORbuASORWeUTd5-sawWlRa_M-aJRqbmimPa062muq2BXmi5m_cVI",
                 "primaryAction": [
                     {
                         "type": "SetValue",
@@ -88,13 +79,10 @@
                 ]
             },
             {
-                "primaryText": "Camembert",
-                "secondaryText": "Country: Normandy",
-                "ratingSlotMode": "multiple",
-                "ratingNumber": 4.75,
-                "ratingText": "(631)",
+                "primaryText": "Trip to Oregon",
+                "secondaryText": "Photos: 84",
                 "imageAlignment": "right",
-                "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v2/cheese_camembert.jpg",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_ZMwnbTbsMp5PAs_xAK5jeE6z_PVvwtMv9y_tuV_0TtFnhgqG1imD4B--Q7CL463p1bVJxBoReAwIuP-tHgkPVvD6uxwEwBXkmRRC71JDsFhAG_PlKeqy1edEUmtmh0v7bcsEKGwaLUTYBr-6rcUAe4m-YWECAQ8F8itCxWtE7A_woG9BxfxbpCzcn2eqU-bgK-lH7k3qOpRjZkt5hQXnrW-HH1agBTOQzukYENXm5y2x-Hmm6-LSUKrZvRu1Ug0BfmLVXBhPNUx3IUA7xATwzArxqDMGCEBxHLdpTAVU1I4fwF1cP6HK8ksMbxnEIykT5Ob9pkZ9styIg3O2bGyrNko0rwi2DjJY9d4JBfle5a4WcZ-LqHlxp34I6MOWayTjObh0ggCV1W9Yqh2N4446IBgjHGOWSjBv0ciFtm-jy3WPijMb9EYRSE59X64IqWKVZu5ZUPVizfZiqQSHk0gK5F4gY0riz_h3AHRRLmMLRL4pbjxkMxzIegri1iFTF0nMwOyFq6jTXZXl_htIsfQDRcDErD1Ij8HX2W0SvlCxc0P5tKvTCaeiPRa0yGurL7XafQQCdNOmIFfTPdLFSE7FdAirD4pi__KZopvu7-wP3A4pXJXVMT9pQpdd-SOJ1RovzhFrT2W9gJyAHu5jIrigpuO7wAGsboZu1SD-J6qL6VnsP-hwUfBVFrTJ-qOhcIzAoHk7WSXS_85eeTjIBAApT_H2DxsS1O1L28cNlyUDNNU7Aw1agaiIAlX4MtiJiJgnu_TUw0bd4I8ZmJybleWy2G0BbXdxd5emAX0qLnvaHokIPFbdhVxTkU",
                 "primaryAction": [
                     {
                         "type": "SetValue",
@@ -105,13 +93,10 @@
                 ]
             },
             {
-                "primaryText": "Gouda",
-                "secondaryText": "Country: Netherlands",
-                "ratingSlotMode": "multiple",
-                "ratingNumber": 3.87,
-                "ratingText": "(321)",
+                "primaryText": "St Thomas",
+                "secondaryText": "Photos: 34",
                 "imageAlignment": "left",
-                "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v2/cheese_gouda.jpg",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_ZySJkkuCCT_vnMo1UxnD29TgeRPNqH9o-9YjrYqJa1vw37ycq_Iw1llGSP1c4sww1_bzCXvxaVPANbelitIhVEdzld4w-mketLRv_D_bY1a_sF3cyii79nPj7209gJTU5vr7xptLJO6x-BJSiOfEUjD4xZkBOaQpxB3QS0QRzM0Wjy_gi5sbdaTFvRJtRxs7N_UYOYsp2juClcldH9XQrMFHE4FnzVVZ229kgf09tRIFwf8ueOv2g7SXgYhHUdasS3YxpdNauGeP9Ya55qgI3Vjt0GpIagFwpb3ilQ_rzduNv9mCfPS5rm6csn8K_ohsxdFSNkXmKW3hWEqcEN0AR80Nk-lc8kRisvsZM7i1roqmZNo-zOtZgCn8vTPP_gWxgAgA3S3q8Lu0wivxwG4OQLJY5TPyLCNrxq7RMn_nE4ry6_DuIXzaMWusDnukeyG58g72akUZLctvxglJ8v3gHZ2cv9pi5Cs9x_ieDXa-WRKG7gJxWi3BBBz4YPwoPMIch5uTpIIHvr1FkLs-IdoddIsewKCkRZThB48P2w4qfaUqzq-KhlhU02odEi7ToHxMFpQQTpjYc2qcEmeNUCP4UoopfzIQVHFNGb75BhqlTfxZ20HxDtXqudnpbmMdCl7VBJEvv6DIMnFbYhnVKqUOa1r-JFP-RKMJHXrOIHFHrjGoStxgAzqQS6aeWEmll5oXmjJPBIIls7gMNxQ2537PxyQROYCyrPVTi7eq09F8cTv6fvrLDQanFKRH2kw82MqqTo7rxzAT4ZZ6UzITjwgy3opZHI_94XAQkkFrlcN-0-6UyqIK8-Trc",
                 "primaryAction": [
                     {
                         "type": "SetValue",
@@ -122,13 +107,10 @@
                 ]
             },
             {
-                "primaryText": "Gruyere",
-                "secondaryText": "Country: Switzerland",
-                "ratingSlotMode": "multiple",
-                "ratingNumber": 4.58,
-                "ratingText": "(436)",
+                "primaryText": "Trip to Washington",
+                "secondaryText": "Photos: 63",
                 "imageAlignment": "right",
-                "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v2/cheese_gruyere.jpg",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_aYFjL332DgewwLs8Q2jvPE3xbZcAjd3A982GK7K4q0WXQvLcf2JavJBmOla7npqz-tTD72ljaQPykPVwCElsMpR2DVhOUanNZD56SlejoyWekm44hOAmrLXo_eR214L2ASj1jJi1wokEWLmvtBlI58144eb8D7OIiv87AXRPh98O38bxsYdPC0O0RmGBa5noLQchvDR3N88b_hfRzDMn-Vct_mI3gSq11svzmND3XMPJqHSHSsDk79HjtJAItTa8SACIE7LceFeAp-0feY1RjrFTVq_ID6gAz14YVfU8gUymvRc-ZIeSc7YL0JemzvtdSpTL-LTs2XLamr4nL2SVjHkxOIiA2bh-qQ-3QAVXFCCBLe6SveEr2q5_GO77H_pw7Zrv1-NxX-G2GtZ0kZmGaSJfMeJ8U2FSa3F0yuRwH8cIjlm7siZLiOfEfjuuiv5wMFnZmrmDTRpJaZKfrwqVSVeDkj3DnYGPxvwLwNaWEPbhxA_QkssVHUwIOS6KATcotev_cCJtA73LzYbeVsLOltJfYthKm3Kxy2QKYwQgGFRkwi1uFX6TOXlDbSF6ewu6bVLotdt3rsgXWvlVW2K_2sco6rIJRtvPa4L5J6scmo-V_qBV0IGbOXfu5d05MUZO0rp3bhTdxshFpuqh2t0dDPnefxjVV6egWxN3QFNfQ-7Shux-QpQRoOLxHZHLUevRQ8vKRQ9PKqtbXerAanPqFPeNrQu-YwQvzRYtzr5ToDhby6EciSk9R8j7eYJlLGJa8abxasBwlxNfpLpugmdDxlLb_a3DJoQt94fWqop6W2WvTsxTiwVH4",
                 "primaryAction": [
                     {
                         "type": "SetValue",
@@ -139,7 +121,7 @@
                 ]
             }
         ],
-        "logoUrl": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v2/icon_cheese.png",
-        "hintText": "Try, \"Alexa, what is today's cheesy joke?\""
+        "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/icon_108_A2Z.png",
+        "hintText": "Try, \"Alexa, ask My Photos to open first album.\""
     }
 }
