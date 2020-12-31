@@ -25,8 +25,9 @@
         "listItems": [
             {
                 "primaryText": "Photo: 1",
+                "primaryText": "Photo: 1",
                 "imageAlignment": "right",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_bl3zXhj44h5dAl-ZpOYmtZ9V5Kj73UZ0aDwRP1-kaC_4poAaNHuQ8wZy47UQkQFqLgwRI7M13V-NphvIaARapxP2nojbSTKZED4gI2XCdx2x6g51yF_LzeUJ8CPhDUiJdzjbvBYc6y0WCdS9_Qj-wlcmxV94o6zBDmaHtuRr28W3DhHy7WL8mFvXPcvqEdJcJKUhLKpvY7HnkCQwpfVnrd0e_thsvR7Z4MP6j4mfqWdDdHKgb8MPdBj8KT7V7rreSnJ8VB-Lx9llrXI_GjA2rm6NVQ6WMa5Gk6OeDSHYl9DM8ConKFN9uFB1mIgxTz12O-rNyT3RqiuTdy8ojdiXio1dTFDviqsjlzNBdi6Kog5pgl8vmlgplIoWp98vm88r3KN0DYV4ksL8pQ5KCIXuSDt_4Zb_hooCyToiePbEyIC6Dy9nkx954yYDJo8klcoYBs_UmBxpMwqPkcAUx2PXLORo1DmJI6fuVhuu8piQ8A-aakIYU1xOySw2r89n-IJe1wCxA04zdXgJw8VQX0rvv4AaCV8muXoHh_e2TcynnbX4fu09HQLmoDMetb7Vw0e-OKTNhvh3Wi8Z7xHwB3ewMKULyl8-Sw13kjO07O3z2iJkk8-DjGf3sFoaC91nKAvpWwAihRXtMtadQh2EsB4o6g6Cel2GPLCxFKUI8Cu1FGFPhM2gCx-ZsOvHQ5dSTAfgAU724rSYoojdO-M-9PAwIkRMfIbD_ivoP538SxfQsV5bsVv43DkVuocjB47Leroi9rOHBAr9xTgTgRdTm-LEc24aF9ff2aGMJTNjiqHaUIjoIWFjIGAjFP=w3024-h4032",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_bZC-hduTXxoOxqNA-2k_ThciNJQ3lFuEcyeFgqugDAtdxLTlXn44vTiELEUnin7LTndCjv_SE2Kx4Vke9II5jNXJiMH6s18xTlu8_VbJ6dELXDen_JYkk_Rwo23cuUvPUwn3OddxP7avubTa44kBMuTzMApSlzaoiK6Agib0UiDSJIwTYcDGPZogILuoVOc6VwApNB8TsPoV0-S5BPbBCG1oIRIubhJO4lXYs8lK4ldqGAGsCBGnX3T8qmFI_m-IENKYhEOxiaDE8Z_h6WukPiwewagCcI2aLnU_Qhp_3Vw6nTQKg5bu64fig5iVfqdUde0ATnDzvRxzhXiN09C84mczZFoK44t_G4EzCfqO4mKAWPJRP1teNsBYFzQskHulW-LGffchxc_JfkCUDCltUNcfTgxgMwwXkAW-7nJpdpcQz_0yNx3jqbTd9fZac6FFuUDQZUU-3nrb4IJfr2u9pRVxungx3YfVLo_WxGhdpancoBLcJuHUb2tWl7h1dzr2G6D6Y7bH0loUYhKnDu4ePcXR55Ds7V0At1FXiVWek-2LoM4XJFMWcPLc6TzDEXeu5PMncHuwDxgBN9X-yq8XNabDp42-3xoNgeUOCX7aAxpMJ5Gw8jnbNoEgf39A7TmwNTwFN0bjYWq1RN9yaqD3DkqsqxMnlwoNJaKaUonvOT1iUSDw=w600-h1024",
                 "primaryAction": {
 				    "type": "SendEvent",
 				        "arguments": [
@@ -41,82 +42,52 @@
             {
                 "primaryText": "Photo: 2",
                 "imageAlignment": "left",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_YdemslmPfmFjYpEXAc22M3IhiU9k2qXwm4qDYZ6Z-Jvlybk_vbm3WA6EqGVWyeTeHVJw2oC1CpwV0F46-NDQabUtOkA0XH9xfWxvPeocShKApvU44iZZojRqaUskbmrLhVgDA_8Ln7AO9AB3h_aPRIXh6E_K9rQzE8TaRf2OOUt4H9lhFS_-VhKB4vSbVXIYeW3SLsZv2Q7yy7UG7HuHiCCNeGENhdhdra8sfxU2uAhDehgpJ0TmAlHYv6BFwV3CRl5N-pbUpMQkcRzBWOz6oUdbnO5tME6H6jDZirMgqyNHPLyxiLms2BQC3p9W8qeLZP1CXmna4UyOwiY1Gnu9c5HPT8Y0BZpq546_9uKBt1z8kxDC968ovPHW6WpkgSlr5nQ_SxXIGQDeNx-8Pksqu-WGw9Ls2nF15fqDaBE-IKfvH--U2CAiIgRjIuDHhIdC8mwh_SjKtCztIBfxEa-PSX6c1ywuuTFtzzqZB_o2oYiJ0Iz3DKkAmVoyx2ApTUUWM0v-ObmPN_bMcjy_jwnpCQYUKIZhjpi5aKfLSx38s3HHyda6OlfkPjEZStvKnHFED7nMkEMlHFQwTDAEaf-gm9WDdXDzYew_zbNb077yCq9SchRN4syuRiyMckiucbGcJYbT9KYmHcghJkvyhaxX9XNrDtHqcVkKXINqoMuVspV0mC_Ja3n7EfOjCqbimYhKLrS8Rc35UY0JN_MIQQzRH7dIzCWcCPRhxkWdwfAX6XzylnKR2HIQVYwtXjkPjX195-iYXRFk6pPjTwSMRtzSZhdn3nXzpCdeOQyxgn8Mztwj7Mkb-JL-vL",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_aOb_9Jt8GbPnt_fyPAk-6xcoirS39FoKs4PYZOfKLUSpKZ3gEpXKA3L0ftQ27UXl_ES7RgUQC9bg2_jHr4i9t86ZjUsy4YnPcAEm38m9cVGFtD1ulUZROPlh9oNaQChwtoTvVqNNJ6N5VkwYRy1RztAwxXFrhl_VdmOn8Ye-KWmmrFn1vzXSP5lE1sC8m4SOmr29IYVVtyIwNOG5tre_eEQh91l9LXcGKi6VLgTezknq54XfXA6hgEt1IpwxCHKDel8FD-dmEPJdpHnyC_S6V-ZEMZsEQvToxEuVdmMchrBU6UMWz_M6AONfqn6301dkKgxX_7YIevOxnOEoSpPCU_sC46QEYWpcavk4Flvh2mbXNvJwUXruAF2uBI2Wn54CT0pxB8CX0EDom8zZfhQEZBIvEk97HR9F9QYqvixvWWXyzqoMXg8zb4vu0vvzbH4U_ykq_hL5QyEqsOZ2t2KbrIRJEmAN536OWbMwM-A1AJX8ee7riS1pW7Sbs59qZJMXhejSamqejyiGio6HCjthZ78yh3Sv_i6BWwMoN9-fHE6DOi8R8DHTnJk8rJ66kMvkulZ1vUj75bJufznxQyZlj7COG2JpqfBSoumbCSrtyqTUrTOctX8oep-e8ffBfIcHHbFwg3r-OOF9TdZU-lqDqTRjWYXCKsVODD1JFlxLSvRZO_pw=w600-h1024",
                 "primaryAction": [
                     {
                         "type": "SetValue",
-                        "componentId": "cheeseList",
+                        "componentId": "imageList",
                         "property": "headerTitle",
                         "value": "${payload.imageListData.listItems[1].primaryText} is selected"
                     }
                 ]
             },
             {
-                "primaryText": "RMNP 2018",
-                "secondaryText": "Photos: 48",
+                "primaryText": "Photo: 3",
                 "imageAlignment": "left",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_arTvIfpRbshPMtjbgjIMDg1LXlO-meOErBGKoltz6xjBVsHnn8DiKRm6rZeQmjyU9aIrq4PVdWLBHz4yFUPiDyAF181H3fOCgD9pmSH95UWYtYS_4CfEHS4gZbvR2DfZL9igNJAzrGdgG0AAK8EG4-3PdtAb1qLFl_FLWHatyldnPDQpog6Vz5nxGfUu8o7s9lyef_QfhL4VniQWrervfL6q9vKNoh15KW1BhC3SaoFBveqlhfuBiFIDiBbY_PVOEv1KQHIWQcWcF9mrLoo2S5zyJvY2nAaMfUezx3tuIh7VFqpARBUazN-RULH3oIUFXEgkGtMr0IgvRli2XUPBxuO9h7t466QE8yt_sB4JAo7hlI2Huw_GV3Xv7xf9y38hW3Js5HxsoYtihS2t1FTHIkv2LmGtOfe2LZC_nWVSRnMjJD8Hu3ucXe4OtchDcYb88r90UqpsdwXp6PrXdT_k5-j4Wu9JlGBDfkR7Urk-b-9qORux_-VE6PhCV00lzb2g78B80RLHafWny8teExyN7tVGhEy6-undNaBl7mIwxHnr-KJQZK6VwSjzZHRzhYr4I6JTLMaxpUCowVPrbHHwxHdksgUUymAIVkmgMZ8gTL7ptaNV3XOUIz5api3ZKFlVT19jz34WdvyAVKrPNWkg9Z4JrsTFFAOIaQ7dMpRDEbt3C0Qh4AvuXgFBMQ6A_Jw8_Uo5_sYaiM5oYqjActkYrD-ky-5qCnrbwm1XQ0ipUwOMXvfsm2ZCPPbIwsCiiQdBU_OeXMUB4IB5HdLuzd0wuRKp1Erz4X1mKJ5Nh5oV4wKCtMdKbc99nh",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_bpbUyN9hW8haLIMZws984W5JZLtTf2K8t3oByxcaW4PDKCU1VuT1ulwGyMsWpuCTdtVjTbIZR-X-S1A8Z1ih0O9zvNIHHD2jL_u5g6SGtz8x7cQQhpimLO4hNw31Lrxfkj_Jf5Whnsw11BOhi_wSdjU9FKwQnN1tBSSStkQkQ0Ta1JoVd0XvadMg_CjyQ0owDeL2t35uWGeAtlmltVSJohmXi88lJn28PO4iM5QrKv7lR8agUBtWpRosOjkGAgmTJKieanz9ll2nUdtvmfS5vsQNmgcMhxfMgF_ogXM7AvkMC_tt8duSp-FTy-4IFd-PRpXc6h2B7DzCqO-CFX5dpZ1nSYTBfHNmw0e-ICzOBTAZ1y1_Y-UGQLzu9lflxYlerPuzcVU4GbdHRVhDGyEWRJP56Voprf6fh8devGyI4uaF5MJz8q4K_FzM58EfO5AMEMe1LQ8ecIHgf7y7s3NV-UCzmoad3blyiM3kYzBCyYGFxJA_cwac3eerNU-oRp_i8CGPTat8vKGYYN34FNmHGqsUHZwSJpyk4YZlgwJ19J60VRU43Grafq2uiW4QAyPON92hghc-On6OaaQVxlZQvv7R1zl0HeHLX3VhIO-lWhdjX0h3FmtLMep_FCTVr_L6amW8EEF0OZXUzqMsoINK0nJOXBHV28ybsmJrM_yltNw72aHw=w1024-h600",
                 "primaryAction": [
                     {
                         "type": "SetValue",
-                        "componentId": "cheeseList",
+                        "componentId": "imageList",
                         "property": "headerTitle",
                         "value": "${payload.imageListData.listItems[2].primaryText} is selected"
                     }
                 ]
             },
             {
-                "primaryText": "AZ 2018",
-                "secondaryText": "Photos: 10",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_bbKt5fv-vexX5xU8JJnJwmBxk1zEDdxe_G-dSCyMk-GJfGIx-yPksg3H4h6qE45bOF9ZcRahOPItJVMcMmYs1te5onxxDb9BC9bpVghozFi5N-QxM1mQV789mUvkZHVr6N0KLvi-eLDB6rXDRTTNVl1kUThLcxT60gtMbsaPiECAPP3scoC-EnkSfOlDhx2bvqnUExyVpsizGLtsrJGMBNVNf2Zmim9WvafU7c2h7h-fqQ41YNlZ_ZK17mFzcdBB0DF59R2mzapPQCAUWs1McNCq9XD8I9ZsZP2cagC8FbjzsEjGvZh-jf3TIfL5Pyk79vKujHk8ylfB9PskdHXS--83QMoWbv6r1iaaYxGR__OAES9D3k_8D6UNjtZGCQBmN-36UZe4fqTDr_8FIEXoBuox-iVhGdVFxGTa665hpV6WHhS0TonZ1I51Qd5R_A4OJGnVZN-n_GVhe3cwUwb1sWh8skdJykyAXuuhOYAz_zq0osg45ulOeJS8YdEZdFWXh-wMTZ0-mdlXtXgW70oVU79kmsTgdxgp4Ip-t2lqkCCYO0BUMbgpLNislgDpgbJQofcRGlTzYRXHKOYD03XxZJRNJq0LeKPRz3JoKJM4P54XoNmnGr40aVCW1jt81pbnJ60YHYeBo9TVfQA96y5GnLkn9X2a1ml2dVEYzK8WgF6GuUw9KLPoUVRCHW0ywJxzlrsV4CIE_hfNWEVNwg1pknrTLUNYQj5RJCul8sVWB6N-w30st4oiHfNs62C7d5kTawORbuASORWeUTd5-sawWlRa_M-aJRqbmimPa062muq2BXmi5m_cVI",
+                "primaryText": "Photo: 4",
+                "imageAlignment": "left",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_aNro2CSeDDj5QexkgXL2ofQOpnjlzvWS5CowfDHeyd3PzNG6E-7xvlEu3oLnQncN8IxkndEdt984XWwe47awYZ_3gJcACmSTjkYfd_ltZbjQPRWP3z7cp4TMRZNkBU82pgWwkHq9dwj2fZ4LyktpxMfJMz-Oa1Je_Z2apYg-a8FXcEl4ADdrektUVwoKIqmnuHxBuYvrlvueB1ePXtSgBm6rxbotUcm6htMZO7os9Z4dLQ2wKEPG_b5JanAs-FMjopLmwg0uDSKi_ERoj_fUbrpSmvwyUoHTyWGlT95_PUI4J1V3xAEbtOdboSFwCwmu7B961xSXHeLaNMgD-Ouj3ZRdOnc9Lkgd2BCFV1ULigGpnYcjK6DrWvcZsFW2ZRh5C7rsbjZ3kjBcjXXtPn2ZIQxMX6UAxbW9ZRct6fvHAQ3VRl7vQlofaX1Zq3gN9Cgnda6_EA5PcpK0kC9Vj25zNFVM9jDOpMhAslXnZr0ttexZD0XBK25EWFZtkWr2GCZUGN7W6tD03E9UJEdYbl_Pog6i2VcQkO-TfW6pJI87hxzvcJ64ZRRj9Wt1V2KSq4yReYskQTFIgnHn2ntvowEXmk4Sxbv-vJblSsSQSZUV3rF6_hlZm5bL0L0DGnlO0S1zILx09EYeCUjGpKwnDTko2SIKJtzDPns6WBbmoHrbEQurWPYw=w1024-h600",
                 "primaryAction": [
                     {
                         "type": "SetValue",
-                        "componentId": "cheeseList",
+                        "componentId": "imageList",
                         "property": "headerTitle",
                         "value": "${payload.imageListData.listItems[3].primaryText} is selected"
                     }
                 ]
             },
             {
-                "primaryText": "Trip to Oregon",
-                "secondaryText": "Photos: 84",
-                "imageAlignment": "right",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_ZMwnbTbsMp5PAs_xAK5jeE6z_PVvwtMv9y_tuV_0TtFnhgqG1imD4B--Q7CL463p1bVJxBoReAwIuP-tHgkPVvD6uxwEwBXkmRRC71JDsFhAG_PlKeqy1edEUmtmh0v7bcsEKGwaLUTYBr-6rcUAe4m-YWECAQ8F8itCxWtE7A_woG9BxfxbpCzcn2eqU-bgK-lH7k3qOpRjZkt5hQXnrW-HH1agBTOQzukYENXm5y2x-Hmm6-LSUKrZvRu1Ug0BfmLVXBhPNUx3IUA7xATwzArxqDMGCEBxHLdpTAVU1I4fwF1cP6HK8ksMbxnEIykT5Ob9pkZ9styIg3O2bGyrNko0rwi2DjJY9d4JBfle5a4WcZ-LqHlxp34I6MOWayTjObh0ggCV1W9Yqh2N4446IBgjHGOWSjBv0ciFtm-jy3WPijMb9EYRSE59X64IqWKVZu5ZUPVizfZiqQSHk0gK5F4gY0riz_h3AHRRLmMLRL4pbjxkMxzIegri1iFTF0nMwOyFq6jTXZXl_htIsfQDRcDErD1Ij8HX2W0SvlCxc0P5tKvTCaeiPRa0yGurL7XafQQCdNOmIFfTPdLFSE7FdAirD4pi__KZopvu7-wP3A4pXJXVMT9pQpdd-SOJ1RovzhFrT2W9gJyAHu5jIrigpuO7wAGsboZu1SD-J6qL6VnsP-hwUfBVFrTJ-qOhcIzAoHk7WSXS_85eeTjIBAApT_H2DxsS1O1L28cNlyUDNNU7Aw1agaiIAlX4MtiJiJgnu_TUw0bd4I8ZmJybleWy2G0BbXdxd5emAX0qLnvaHokIPFbdhVxTkU",
+                "primaryText": "Photo: 5",
+                "imageAlignment": "left",
+                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_ZeIyJgy5QrvNx9Muq9OlyPkaPBDB4DP_LIbWngtklpIgX4mPvIvgzZSzXzLw43v9FNhdcn-eru77yTe1tstprZNgWQBuO_G4l7zOcnatKtE11xNx72VGC7kwNnJEYh5b55IcEa6UIgP1gVA38qcz39xzm5eWuOIatdqPtCB2lu1oQc9NHwQjzBBWeWrwMOsVuq8tYFcR9ctyRmx7LRv7Kfn7aKeVquK--7qljcimeoJiIZYzMF0x3r4XimQImmHuFWmXC1XR0xQjCbLxL7COTxYQ3SLRiB-8Qw36XJtTvbQCdpQAO2LGlTD6vJdG9_IK8dhM5MkINXKRYOX0PeVvwI_7wlcZpo2Pqk0M6ChwOheVU8gzSXCVRVftjKRnmdLqAwLoZAGbT14jD60-ie47zIzs_Grm5lI4z9uhY44PeG5TU1gyvoNKYSrMVDhmBoKBrVoOD-gAsJTqtrGDu64jptqEXgGyjgQHRF4hwrU5G--KGEV5vRxZCSGrOmwbgSRt4zKWPLQVrTJmiqSFIChR-RBMAmCwkCAXT6w4CsBwgpTbQzJAEMbACcKGOQpVC6rmA92DUcQExkNhG2GNK8s-yRgMDB1IZuUe9f0EIVde47pE2vQ-8NsLz4zrDq43kNtEB1yR3HhniKROrrj2q1kuYyo0JpFfTxO-ogxe9C8VARNctEQw=w1024-h600",
                 "primaryAction": [
                     {
                         "type": "SetValue",
-                        "componentId": "cheeseList",
+                        "componentId": "imageList",
                         "property": "headerTitle",
                         "value": "${payload.imageListData.listItems[4].primaryText} is selected"
-                    }
-                ]
-            },
-            {
-                "primaryText": "St Thomas",
-                "secondaryText": "Photos: 34",
-                "imageAlignment": "left",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_ZySJkkuCCT_vnMo1UxnD29TgeRPNqH9o-9YjrYqJa1vw37ycq_Iw1llGSP1c4sww1_bzCXvxaVPANbelitIhVEdzld4w-mketLRv_D_bY1a_sF3cyii79nPj7209gJTU5vr7xptLJO6x-BJSiOfEUjD4xZkBOaQpxB3QS0QRzM0Wjy_gi5sbdaTFvRJtRxs7N_UYOYsp2juClcldH9XQrMFHE4FnzVVZ229kgf09tRIFwf8ueOv2g7SXgYhHUdasS3YxpdNauGeP9Ya55qgI3Vjt0GpIagFwpb3ilQ_rzduNv9mCfPS5rm6csn8K_ohsxdFSNkXmKW3hWEqcEN0AR80Nk-lc8kRisvsZM7i1roqmZNo-zOtZgCn8vTPP_gWxgAgA3S3q8Lu0wivxwG4OQLJY5TPyLCNrxq7RMn_nE4ry6_DuIXzaMWusDnukeyG58g72akUZLctvxglJ8v3gHZ2cv9pi5Cs9x_ieDXa-WRKG7gJxWi3BBBz4YPwoPMIch5uTpIIHvr1FkLs-IdoddIsewKCkRZThB48P2w4qfaUqzq-KhlhU02odEi7ToHxMFpQQTpjYc2qcEmeNUCP4UoopfzIQVHFNGb75BhqlTfxZ20HxDtXqudnpbmMdCl7VBJEvv6DIMnFbYhnVKqUOa1r-JFP-RKMJHXrOIHFHrjGoStxgAzqQS6aeWEmll5oXmjJPBIIls7gMNxQ2537PxyQROYCyrPVTi7eq09F8cTv6fvrLDQanFKRH2kw82MqqTo7rxzAT4ZZ6UzITjwgy3opZHI_94XAQkkFrlcN-0-6UyqIK8-Trc",
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "cheeseList",
-                        "property": "headerTitle",
-                        "value": "${payload.imageListData.listItems[5].primaryText} is selected"
-                    }
-                ]
-            },
-            {
-                "primaryText": "Trip to Washington",
-                "secondaryText": "Photos: 63",
-                "imageAlignment": "right",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_aYFjL332DgewwLs8Q2jvPE3xbZcAjd3A982GK7K4q0WXQvLcf2JavJBmOla7npqz-tTD72ljaQPykPVwCElsMpR2DVhOUanNZD56SlejoyWekm44hOAmrLXo_eR214L2ASj1jJi1wokEWLmvtBlI58144eb8D7OIiv87AXRPh98O38bxsYdPC0O0RmGBa5noLQchvDR3N88b_hfRzDMn-Vct_mI3gSq11svzmND3XMPJqHSHSsDk79HjtJAItTa8SACIE7LceFeAp-0feY1RjrFTVq_ID6gAz14YVfU8gUymvRc-ZIeSc7YL0JemzvtdSpTL-LTs2XLamr4nL2SVjHkxOIiA2bh-qQ-3QAVXFCCBLe6SveEr2q5_GO77H_pw7Zrv1-NxX-G2GtZ0kZmGaSJfMeJ8U2FSa3F0yuRwH8cIjlm7siZLiOfEfjuuiv5wMFnZmrmDTRpJaZKfrwqVSVeDkj3DnYGPxvwLwNaWEPbhxA_QkssVHUwIOS6KATcotev_cCJtA73LzYbeVsLOltJfYthKm3Kxy2QKYwQgGFRkwi1uFX6TOXlDbSF6ewu6bVLotdt3rsgXWvlVW2K_2sco6rIJRtvPa4L5J6scmo-V_qBV0IGbOXfu5d05MUZO0rp3bhTdxshFpuqh2t0dDPnefxjVV6egWxN3QFNfQ-7Shux-QpQRoOLxHZHLUevRQ8vKRQ9PKqtbXerAanPqFPeNrQu-YwQvzRYtzr5ToDhby6EciSk9R8j7eYJlLGJa8abxasBwlxNfpLpugmdDxlLb_a3DJoQt94fWqop6W2WvTsxTiwVH4",
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "cheeseList",
-                        "property": "headerTitle",
-                        "value": "${payload.imageListData.listItems[6].primaryText} is selected"
                     }
                 ]
             }

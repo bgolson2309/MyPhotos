@@ -73,6 +73,8 @@ public class LaunchRequestHandler implements RequestHandler  {
     	input.getAttributesManager().getSessionAttributes().put("AlbumList", albums);
     	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
     	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
+    	
+    	
     	String speechText = "Welcome to My Photos.";
     	// Check for APL support on the user's device
         if (RequestHelper.forHandlerInput(input)
