@@ -74,17 +74,10 @@ public class AlbumImagesEventHandler implements UserEventHandler {
           }
 
           // add the speech to the response and return it.
-
           return responseBuilder
               .withSpeech(speechText)
-              .withSimpleCard("Hello World with APL", speechText)
+              .withReprompt("Tell me to start over if you want me to bring the text back into view. Or, you can just say hello again.")
               .build();
     	  
-//    	  String speechText = "Thank you for clicking the button! I imagine you already noticed that the text faded away. Tell me to start over to bring it back!";
-//        
-//        return input.getResponseBuilder()
-//            .withSpeech(speechText)
-//            .withReprompt("Tell me to start over if you want me to bring the text back into view. Or, you can just say hello again.")
-//            .build();
     }
 }

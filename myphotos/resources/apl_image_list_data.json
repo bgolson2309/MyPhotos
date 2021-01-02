@@ -24,75 +24,43 @@
         "title": "Photo Album:{title from Google}",
         "listItems": [
             {
-                "primaryText": "Photo: 1",
-                "primaryText": "Photo: 1",
+                "primaryText": "{image name}",
                 "imageAlignment": "right",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_bZC-hduTXxoOxqNA-2k_ThciNJQ3lFuEcyeFgqugDAtdxLTlXn44vTiELEUnin7LTndCjv_SE2Kx4Vke9II5jNXJiMH6s18xTlu8_VbJ6dELXDen_JYkk_Rwo23cuUvPUwn3OddxP7avubTa44kBMuTzMApSlzaoiK6Agib0UiDSJIwTYcDGPZogILuoVOc6VwApNB8TsPoV0-S5BPbBCG1oIRIubhJO4lXYs8lK4ldqGAGsCBGnX3T8qmFI_m-IENKYhEOxiaDE8Z_h6WukPiwewagCcI2aLnU_Qhp_3Vw6nTQKg5bu64fig5iVfqdUde0ATnDzvRxzhXiN09C84mczZFoK44t_G4EzCfqO4mKAWPJRP1teNsBYFzQskHulW-LGffchxc_JfkCUDCltUNcfTgxgMwwXkAW-7nJpdpcQz_0yNx3jqbTd9fZac6FFuUDQZUU-3nrb4IJfr2u9pRVxungx3YfVLo_WxGhdpancoBLcJuHUb2tWl7h1dzr2G6D6Y7bH0loUYhKnDu4ePcXR55Ds7V0At1FXiVWek-2LoM4XJFMWcPLc6TzDEXeu5PMncHuwDxgBN9X-yq8XNabDp42-3xoNgeUOCX7aAxpMJ5Gw8jnbNoEgf39A7TmwNTwFN0bjYWq1RN9yaqD3DkqsqxMnlwoNJaKaUonvOT1iUSDw=w600-h1024",
+                "imageSource": "{baseURL}=w{width-px}-h{height-px}",
                 "primaryAction": {
 				    "type": "SendEvent",
 				        "arguments": [
 					      "ImageListItemSelected",
-					      "AMEXHWoEE6Rx7brnT4uB0gRtrv7NGnuLhgGTW33WvwLEG4gQkOJz-i0u0r1V-ysRBn0TjPpxGbJf40oSInNFPTYVl2xyCqZcHQ"
-					    ],
-					    "components": [
-					        "ImageListItemSelected"
-					      ]
+					      "{image uuid}"
+					    ]
 				  }
             },
             {
-                "primaryText": "Photo: 2",
+                "primaryText": "{image name}",
                 "imageAlignment": "left",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_aOb_9Jt8GbPnt_fyPAk-6xcoirS39FoKs4PYZOfKLUSpKZ3gEpXKA3L0ftQ27UXl_ES7RgUQC9bg2_jHr4i9t86ZjUsy4YnPcAEm38m9cVGFtD1ulUZROPlh9oNaQChwtoTvVqNNJ6N5VkwYRy1RztAwxXFrhl_VdmOn8Ye-KWmmrFn1vzXSP5lE1sC8m4SOmr29IYVVtyIwNOG5tre_eEQh91l9LXcGKi6VLgTezknq54XfXA6hgEt1IpwxCHKDel8FD-dmEPJdpHnyC_S6V-ZEMZsEQvToxEuVdmMchrBU6UMWz_M6AONfqn6301dkKgxX_7YIevOxnOEoSpPCU_sC46QEYWpcavk4Flvh2mbXNvJwUXruAF2uBI2Wn54CT0pxB8CX0EDom8zZfhQEZBIvEk97HR9F9QYqvixvWWXyzqoMXg8zb4vu0vvzbH4U_ykq_hL5QyEqsOZ2t2KbrIRJEmAN536OWbMwM-A1AJX8ee7riS1pW7Sbs59qZJMXhejSamqejyiGio6HCjthZ78yh3Sv_i6BWwMoN9-fHE6DOi8R8DHTnJk8rJ66kMvkulZ1vUj75bJufznxQyZlj7COG2JpqfBSoumbCSrtyqTUrTOctX8oep-e8ffBfIcHHbFwg3r-OOF9TdZU-lqDqTRjWYXCKsVODD1JFlxLSvRZO_pw=w600-h1024",
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "imageList",
-                        "property": "headerTitle",
-                        "value": "${payload.imageListData.listItems[1].primaryText} is selected"
-                    }
-                ]
+                "imageSource": "{baseURL}=w{width-px}-h{height-px}",
+                "primaryAction": {
+				    "type": "SendEvent",
+				        "arguments": [
+					      "ImageListItemSelected",
+					      "{image uuid}"
+					    ]
+				  }
             },
             {
-                "primaryText": "Photo: 3",
-                "imageAlignment": "left",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_bpbUyN9hW8haLIMZws984W5JZLtTf2K8t3oByxcaW4PDKCU1VuT1ulwGyMsWpuCTdtVjTbIZR-X-S1A8Z1ih0O9zvNIHHD2jL_u5g6SGtz8x7cQQhpimLO4hNw31Lrxfkj_Jf5Whnsw11BOhi_wSdjU9FKwQnN1tBSSStkQkQ0Ta1JoVd0XvadMg_CjyQ0owDeL2t35uWGeAtlmltVSJohmXi88lJn28PO4iM5QrKv7lR8agUBtWpRosOjkGAgmTJKieanz9ll2nUdtvmfS5vsQNmgcMhxfMgF_ogXM7AvkMC_tt8duSp-FTy-4IFd-PRpXc6h2B7DzCqO-CFX5dpZ1nSYTBfHNmw0e-ICzOBTAZ1y1_Y-UGQLzu9lflxYlerPuzcVU4GbdHRVhDGyEWRJP56Voprf6fh8devGyI4uaF5MJz8q4K_FzM58EfO5AMEMe1LQ8ecIHgf7y7s3NV-UCzmoad3blyiM3kYzBCyYGFxJA_cwac3eerNU-oRp_i8CGPTat8vKGYYN34FNmHGqsUHZwSJpyk4YZlgwJ19J60VRU43Grafq2uiW4QAyPON92hghc-On6OaaQVxlZQvv7R1zl0HeHLX3VhIO-lWhdjX0h3FmtLMep_FCTVr_L6amW8EEF0OZXUzqMsoINK0nJOXBHV28ybsmJrM_yltNw72aHw=w1024-h600",
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "imageList",
-                        "property": "headerTitle",
-                        "value": "${payload.imageListData.listItems[2].primaryText} is selected"
-                    }
-                ]
-            },
-            {
-                "primaryText": "Photo: 4",
-                "imageAlignment": "left",
-                "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_aNro2CSeDDj5QexkgXL2ofQOpnjlzvWS5CowfDHeyd3PzNG6E-7xvlEu3oLnQncN8IxkndEdt984XWwe47awYZ_3gJcACmSTjkYfd_ltZbjQPRWP3z7cp4TMRZNkBU82pgWwkHq9dwj2fZ4LyktpxMfJMz-Oa1Je_Z2apYg-a8FXcEl4ADdrektUVwoKIqmnuHxBuYvrlvueB1ePXtSgBm6rxbotUcm6htMZO7os9Z4dLQ2wKEPG_b5JanAs-FMjopLmwg0uDSKi_ERoj_fUbrpSmvwyUoHTyWGlT95_PUI4J1V3xAEbtOdboSFwCwmu7B961xSXHeLaNMgD-Ouj3ZRdOnc9Lkgd2BCFV1ULigGpnYcjK6DrWvcZsFW2ZRh5C7rsbjZ3kjBcjXXtPn2ZIQxMX6UAxbW9ZRct6fvHAQ3VRl7vQlofaX1Zq3gN9Cgnda6_EA5PcpK0kC9Vj25zNFVM9jDOpMhAslXnZr0ttexZD0XBK25EWFZtkWr2GCZUGN7W6tD03E9UJEdYbl_Pog6i2VcQkO-TfW6pJI87hxzvcJ64ZRRj9Wt1V2KSq4yReYskQTFIgnHn2ntvowEXmk4Sxbv-vJblSsSQSZUV3rF6_hlZm5bL0L0DGnlO0S1zILx09EYeCUjGpKwnDTko2SIKJtzDPns6WBbmoHrbEQurWPYw=w1024-h600",
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "imageList",
-                        "property": "headerTitle",
-                        "value": "${payload.imageListData.listItems[3].primaryText} is selected"
-                    }
-                ]
-            },
-            {
-                "primaryText": "Photo: 5",
+                "primaryText": "{image name}",
                 "imageAlignment": "left",
                 "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_ZeIyJgy5QrvNx9Muq9OlyPkaPBDB4DP_LIbWngtklpIgX4mPvIvgzZSzXzLw43v9FNhdcn-eru77yTe1tstprZNgWQBuO_G4l7zOcnatKtE11xNx72VGC7kwNnJEYh5b55IcEa6UIgP1gVA38qcz39xzm5eWuOIatdqPtCB2lu1oQc9NHwQjzBBWeWrwMOsVuq8tYFcR9ctyRmx7LRv7Kfn7aKeVquK--7qljcimeoJiIZYzMF0x3r4XimQImmHuFWmXC1XR0xQjCbLxL7COTxYQ3SLRiB-8Qw36XJtTvbQCdpQAO2LGlTD6vJdG9_IK8dhM5MkINXKRYOX0PeVvwI_7wlcZpo2Pqk0M6ChwOheVU8gzSXCVRVftjKRnmdLqAwLoZAGbT14jD60-ie47zIzs_Grm5lI4z9uhY44PeG5TU1gyvoNKYSrMVDhmBoKBrVoOD-gAsJTqtrGDu64jptqEXgGyjgQHRF4hwrU5G--KGEV5vRxZCSGrOmwbgSRt4zKWPLQVrTJmiqSFIChR-RBMAmCwkCAXT6w4CsBwgpTbQzJAEMbACcKGOQpVC6rmA92DUcQExkNhG2GNK8s-yRgMDB1IZuUe9f0EIVde47pE2vQ-8NsLz4zrDq43kNtEB1yR3HhniKROrrj2q1kuYyo0JpFfTxO-ogxe9C8VARNctEQw=w1024-h600",
-                "primaryAction": [
-                    {
-                        "type": "SetValue",
-                        "componentId": "imageList",
-                        "property": "headerTitle",
-                        "value": "${payload.imageListData.listItems[4].primaryText} is selected"
-                    }
-                ]
+                "primaryAction": {
+				    "type": "SendEvent",
+				        "arguments": [
+					      "ImageListItemSelected",
+					      "{image uuid}"
+					    ]
+				  }
             }
         ],
         "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/icon_108_A2Z.png",
-        "hintText": "Try, \"Alexa, ask My Photos to open first album.\""
+        "hintText": "Try, \"Alexa, ask My Photos to begin slideshow.\""
     }
 }

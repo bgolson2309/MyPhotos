@@ -9,10 +9,12 @@ import com.amazon.ask.model.interfaces.alexa.presentation.apl.RenderDocumentDire
 import com.amazon.ask.request.RequestHelper;
 import com.amazon.ask.response.ResponseBuilder;
 import com.wakeword.main.Constants;
+import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
 
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
+import com.wakeword.dto.Album;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,13 +42,13 @@ public class LaunchRequestHandler implements RequestHandler  {
         		System.out.println("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
         	}
     	} catch (Exception e) {
-    		System.out.println(e.getStackTrace());
+    		System.out.println(e.getMessage());
     	}
-
     	
-    	String albums = null;
     	boolean hasPremiumAccess = false;
     	persistentAttributes.put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
+    	String albumsString = null;
+    	String albumsJson = null;
     	
     	if (googleToken == null)
     	{
@@ -59,10 +61,19 @@ public class LaunchRequestHandler implements RequestHandler  {
         } else {
     		if(PhotoManager.validateToken(googleToken)) {
     			System.out.println("Google token is valid");
-        		String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
-        		System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
-        		albums = PhotoManager.listAlbums(googleToken);
-        		System.out.println("ALBUM LIST = " + albums);
+        		///////String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
+        		///////System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
+    			
+    			albumsString = PhotoManager.listAlbums(googleToken);
+    			try {
+            		ObjectMapper objectMapper = new ObjectMapper();
+            		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
+            		albumsJson = AplUtil.buildAlbumData(albums);
+            		
+    	    	} catch (Exception e) {
+    	    		System.out.println(e.getMessage());
+    	    	}
+    			System.out.println("ALBUM JSON = " + albumsJson);
 
     		} else {
     			// handle invalid google token case
@@ -70,7 +81,7 @@ public class LaunchRequestHandler implements RequestHandler  {
     	}
     	
     	// test saving album list on session and bought access on Persistent layer
-    	input.getAttributesManager().getSessionAttributes().put("AlbumList", albums);
+    	input.getAttributesManager().getSessionAttributes().put("AlbumList", albumsString);
     	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
     	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
     	
@@ -89,8 +100,9 @@ public class LaunchRequestHandler implements RequestHandler  {
                     new TypeReference<HashMap<String, Object>>() {};
 
                 Map<String, Object> document = mapper.readValue(new File("apl_album_list_template.json"), documentMapType);
-                Map<String, Object> data = mapper.readValue(new File("apl_album_list_data.json"), documentMapType);
-
+                //Map<String, Object> data = mapper.readValue(new File("apl_album_list_data.json"), documentMapType);
+                Map<String, Object> data = mapper.readValue(albumsJson, documentMapType);
+                
                 // Use builder methods in the SDK to create the directive.
                 RenderDocumentDirective renderDocumentDirective = RenderDocumentDirective.builder()
                         .withToken("AlbumListToken")

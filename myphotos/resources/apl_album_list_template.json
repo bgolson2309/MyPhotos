@@ -22,7 +22,7 @@
         "items": [
             {
                 "type": "AlexaImageList",
-                "id": "cheeseList",
+                "id": "albumList",
                 "headerTitle": "${payload.imageListData.title}",
                 "headerBackButton": false,
                 "headerAttributionImage": "${payload.imageListData.logoUrl}",
