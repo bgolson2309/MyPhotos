@@ -15,6 +15,7 @@ import com.wakeword.util.PhotoManager;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
 import com.wakeword.dto.Album;
+import com.wakeword.dto.MediaItem;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,6 +50,7 @@ public class LaunchRequestHandler implements RequestHandler  {
     	persistentAttributes.put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
     	String albumsString = null;
     	String albumsJson = null;
+
     	
     	if (googleToken == null)
     	{
@@ -59,14 +61,11 @@ public class LaunchRequestHandler implements RequestHandler  {
                     .withLinkAccountCard()
                     .build();    	
         } else {
-    		if(PhotoManager.validateToken(googleToken)) {
-    			System.out.println("Google token is valid");
-        		///////String AnAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
-        		///////System.out.println("UTAH ALBUM MEDIA = " + AnAlbum);
+    		if(PhotoManager.validateToken(googleToken)) {       		
+        		ObjectMapper objectMapper = new ObjectMapper();      		
     			
     			albumsString = PhotoManager.listAlbums(googleToken);
     			try {
-            		ObjectMapper objectMapper = new ObjectMapper();
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
             		albumsJson = AplUtil.buildAlbumData(albums);
             		
@@ -92,7 +91,6 @@ public class LaunchRequestHandler implements RequestHandler  {
                 .getSupportedInterfaces()
                 .getAlexaPresentationAPL() != null) {
 
-            // Code to send APL directives can go here
             try {
                 // Retrieve the JSON document and put into a string/object map
                 ObjectMapper mapper = new ObjectMapper();
@@ -100,7 +98,6 @@ public class LaunchRequestHandler implements RequestHandler  {
                     new TypeReference<HashMap<String, Object>>() {};
 
                 Map<String, Object> document = mapper.readValue(new File("apl_album_list_template.json"), documentMapType);
-                //Map<String, Object> data = mapper.readValue(new File("apl_album_list_data.json"), documentMapType);
                 Map<String, Object> data = mapper.readValue(albumsJson, documentMapType);
                 
                 // Use builder methods in the SDK to create the directive.

@@ -21,41 +21,29 @@
                 }
             ]
         },
-        "title": "Photo Album:{title from Google}",
+        "title": "Photo Album:{album-title}",
         "listItems": [
             {
-                "primaryText": "{image name}",
-                "imageAlignment": "right",
+                "primaryText": "{image-name}",
+                "imageAlignment": "right-left",
                 "imageSource": "{baseURL}=w{width-px}-h{height-px}",
                 "primaryAction": {
 				    "type": "SendEvent",
 				        "arguments": [
 					      "ImageListItemSelected",
-					      "{image uuid}"
+					      "{image-uuid}"
 					    ]
 				  }
             },
             {
-                "primaryText": "{image name}",
-                "imageAlignment": "left",
-                "imageSource": "{baseURL}=w{width-px}-h{height-px}",
-                "primaryAction": {
-				    "type": "SendEvent",
-				        "arguments": [
-					      "ImageListItemSelected",
-					      "{image uuid}"
-					    ]
-				  }
-            },
-            {
-                "primaryText": "{image name}",
+                "primaryText": "{image-name}",
                 "imageAlignment": "left",
                 "imageSource": "https://lh3.googleusercontent.com/lr/AFBm1_ZeIyJgy5QrvNx9Muq9OlyPkaPBDB4DP_LIbWngtklpIgX4mPvIvgzZSzXzLw43v9FNhdcn-eru77yTe1tstprZNgWQBuO_G4l7zOcnatKtE11xNx72VGC7kwNnJEYh5b55IcEa6UIgP1gVA38qcz39xzm5eWuOIatdqPtCB2lu1oQc9NHwQjzBBWeWrwMOsVuq8tYFcR9ctyRmx7LRv7Kfn7aKeVquK--7qljcimeoJiIZYzMF0x3r4XimQImmHuFWmXC1XR0xQjCbLxL7COTxYQ3SLRiB-8Qw36XJtTvbQCdpQAO2LGlTD6vJdG9_IK8dhM5MkINXKRYOX0PeVvwI_7wlcZpo2Pqk0M6ChwOheVU8gzSXCVRVftjKRnmdLqAwLoZAGbT14jD60-ie47zIzs_Grm5lI4z9uhY44PeG5TU1gyvoNKYSrMVDhmBoKBrVoOD-gAsJTqtrGDu64jptqEXgGyjgQHRF4hwrU5G--KGEV5vRxZCSGrOmwbgSRt4zKWPLQVrTJmiqSFIChR-RBMAmCwkCAXT6w4CsBwgpTbQzJAEMbACcKGOQpVC6rmA92DUcQExkNhG2GNK8s-yRgMDB1IZuUe9f0EIVde47pE2vQ-8NsLz4zrDq43kNtEB1yR3HhniKROrrj2q1kuYyo0JpFfTxO-ogxe9C8VARNctEQw=w1024-h600",
                 "primaryAction": {
 				    "type": "SendEvent",
 				        "arguments": [
 					      "ImageListItemSelected",
-					      "{image uuid}"
+					      "{image-uuid}"
 					    ]
 				  }
             }

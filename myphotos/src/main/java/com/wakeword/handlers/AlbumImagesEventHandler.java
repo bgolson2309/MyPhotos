@@ -19,6 +19,9 @@ import com.amazon.ask.request.RequestHelper;
 import com.amazon.ask.response.ResponseBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wakeword.dto.MediaItem;
+import com.wakeword.util.AplUtil;
+import com.wakeword.util.PhotoManager;
 
 public class AlbumImagesEventHandler implements UserEventHandler {
 
@@ -32,14 +35,47 @@ public class AlbumImagesEventHandler implements UserEventHandler {
     }
 
     @Override
+    /*
+     * Arguments[] passed in:
+     * 0 = User Event Type
+     * 1 = ALbum Title
+     * 2 = Album ID for making Google API call for Media Items
+     */
     public Optional<Response> handle(HandlerInput input, UserEvent userEvent) {
+    	 
+    	 // get viewport info
 		 ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
 		 Shape shape = viewportState.getShape();
 		 int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
 		 int currentPixelHeight = viewportState.getCurrentPixelHeight().intValueExact();
+		 
+		 // get selected album id and make Google API call
+		 String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
+		 ArrayList argumentsObject =  (ArrayList) userEvent.getArguments();
+		 String albumTitle = (String) argumentsObject.get(1);
+	     String albumId = (String) argumentsObject.get(2);
+		 String selectedAlbumAPIResponse = PhotoManager.listAlbumMedia(googleToken, albumId);
+
+ 		//String selectedAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
+ 		//System.out.println("UTAH ALBUM STRING = " + selectedAlbum);
+		 
+		 //build json data of MediaItems for selected album
+	    String photosJson = null;
+		ObjectMapper objectMapper = new ObjectMapper();      		
+
+		 try {
+			 MediaItem[] media = objectMapper.readValue(selectedAlbumAPIResponse.substring(17), MediaItem[].class); 
+        	photosJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, albumTitle);
+        		
+	    } catch (Exception e) {
+	    	System.out.println(e.getMessage());
+	    }
+		System.out.println("PHOTOS JSON = " + photosJson);
+		 
+		 // build response for user
 		 ResponseBuilder responseBuilder = input.getResponseBuilder();
  
-		 String speechText = "Nice Album!";
+		 String speechText = "Nice Photos!";
       	// Check for APL support on the user's device
           if (RequestHelper.forHandlerInput(input)
                   .getSupportedInterfaces()
@@ -53,7 +89,7 @@ public class AlbumImagesEventHandler implements UserEventHandler {
                       new TypeReference<HashMap<String, Object>>() {};
 
                   Map<String, Object> document = mapper.readValue(new File("apl_image_list_template.json"), documentMapType);
-                  Map<String, Object> data = mapper.readValue(new File("apl_image_list_data.json"), documentMapType);
+                  Map<String, Object> data = mapper.readValue(photosJson, documentMapType);
 
                   // Use builder methods in the SDK to create the directive.
                   RenderDocumentDirective renderDocumentDirective = RenderDocumentDirective.builder()
