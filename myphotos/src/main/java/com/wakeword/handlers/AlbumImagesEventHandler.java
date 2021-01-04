@@ -56,8 +56,8 @@ public class AlbumImagesEventHandler implements UserEventHandler {
 	     String albumId = (String) argumentsObject.get(2);
 		 String selectedAlbumAPIResponse = PhotoManager.listAlbumMedia(googleToken, albumId);
 
- 		//String selectedAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
- 		//System.out.println("UTAH ALBUM STRING = " + selectedAlbum);
+ 		String selectedAlbum = PhotoManager.listAlbumMedia(googleToken, "AMEXHWpANbSolnXXxx5o9BWI7vGh8miF-c_27A6Z_mM6IXNPP6B_Of7d6N7ZjvKv4jP657jtEWoj");
+ 		System.out.println("UTAH ALBUM STRING = " + selectedAlbum);
 		 
 		 //build json data of MediaItems for selected album
 	    String photosJson = null;

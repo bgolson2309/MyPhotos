@@ -55,7 +55,7 @@ public class PhotoManager {
     {
     	HttpClient client = HttpClient.newHttpClient();
     	HttpRequest request = HttpRequest.newBuilder()
-    	      .uri(URI.create("https://photoslibrary.googleapis.com/v1/albums"))
+    	      .uri(URI.create("https://photoslibrary.googleapis.com/v1/albums?pageSize=50"))
     	      .setHeader("Authorization", " Bearer " + token)
     	      .GET()
     	      .build();
@@ -91,7 +91,7 @@ public class PhotoManager {
     	
     	HttpClient client = HttpClient.newHttpClient();
     	HttpRequest request = HttpRequest.newBuilder()
-    	      .uri(URI.create("https://photoslibrary.googleapis.com/v1/mediaItems:search"))
+    	      .uri(URI.create("https://photoslibrary.googleapis.com/v1/mediaItems:search?pageSize=100"))
     	      .setHeader("Authorization", " Bearer " + token)
     	      .POST(HttpRequest.BodyPublishers.ofString(requestBody))
     	      .build();

@@ -78,7 +78,7 @@ public class AplUtil {
 			"                }\r\n" + 
 			"            ]\r\n" + 
 			"        },\r\n" + 
-			"        \"title\": \"Photo Album:{album-title}\",\r\n" + 
+			"        \"title\": \"Photo Album: {album-title}\",\r\n" + 
 			"        \"listItems\": [";
 			
 	public static String photos_template = "            {\r\n" + 
@@ -134,7 +134,7 @@ public class AplUtil {
 				jsonPhotosData = jsonPhotosData + photos_template;
 				jsonPhotosData=jsonPhotosData.replace("{right-left}","left");
 			}
-			jsonPhotosData=jsonPhotosData.replace("{image-name}", media[i].getFilename());
+			jsonPhotosData=jsonPhotosData.replace("{image-name}", media[i].getMediaMetadata().getCreationTime());
 			jsonPhotosData=jsonPhotosData.replace("{baseURL}", media[i].getBaseUrl());
 			jsonPhotosData=jsonPhotosData.replace("{width-px}", String.valueOf(currentPixelWidth));
 			jsonPhotosData=jsonPhotosData.replace("{height-px}", String.valueOf(currentPixelHeight));
