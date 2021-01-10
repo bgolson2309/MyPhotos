@@ -1,51 +1,40 @@
 package com.wakeword.handlers;
 
-import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.exception.AskSdkException;
-import com.amazon.ask.model.LaunchRequest;
-import com.amazon.ask.model.Response;
-import com.amazon.ask.model.interfaces.alexa.presentation.apl.RenderDocumentDirective;
-import com.amazon.ask.response.ResponseBuilder;
+import com.wakeword.dto.Album;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
-
-import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
-import com.wakeword.dto.Album;
+import com.amazon.ask.dispatcher.request.handler.HandlerInput;
+import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
+import com.amazon.ask.exception.AskSdkException;
+import com.amazon.ask.model.IntentRequest;
+import com.amazon.ask.model.Response;
+import com.amazon.ask.model.interfaces.alexa.presentation.apl.RenderDocumentDirective;
+import com.amazon.ask.request.RequestHelper;
+import com.amazon.ask.response.ResponseBuilder;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import static com.amazon.ask.request.Predicates.intentName;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import static com.amazon.ask.request.Predicates.requestType;
 
-
-public class LaunchRequestHandler implements RequestHandler  {
-    private static Logger LOG = getLogger(LaunchRequestHandler.class);
-    public boolean canHandle(HandlerInput input) {
-        return input.matches(requestType(LaunchRequest.class));
-    }
-    public Optional<Response> handle(HandlerInput input) {
+public class ListAlbumsIntentHandler implements IntentRequestHandler  {
+    
+	public boolean canHandle(HandlerInput input, IntentRequest intentRequest) {
+		return (input.matches(intentName(Constants.LIST_ALBUMS_INTENT)));
+	}
+	
+	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
     	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	String albumsString, speechText, albumsJson = null;
-/*
- *     	try {
-        	if (persistentAttributes.containsKey("PremiumAccess")) {
-        		System.out.println("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
-        	}
-    	} catch (Exception e) {
-    		System.out.println(e.getMessage());
-    	}
-    	boolean hasPremiumAccess = false;
-    	persistentAttributes.put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
- */
+
     	if (googleToken == null || (!PhotoManager.validateToken(googleToken)))
     	{
             speechText = "Please use the Alexa application to link your Google account with My Photos.";
@@ -62,14 +51,9 @@ public class LaunchRequestHandler implements RequestHandler  {
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());
     	    	}
-    	    	speechText = "Welcome to My Photos.";
+    	    	speechText = "Here's your list of albums.";
     	}
-/*    	
-    	// test saving album list on session and bought access on Persistent layer
-    	input.getAttributesManager().getSessionAttributes().put("AlbumList", albumsString);
-    	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
-    	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
-*/    	
+    	
         if (AplUtil.supportsApl(input)) {
             try {
                 // Retrieve the JSON document and put into a string/object map
@@ -103,5 +87,4 @@ public class LaunchRequestHandler implements RequestHandler  {
             .withSimpleCard("My Photos", speechText)
             .build();
 	}
-
 }
