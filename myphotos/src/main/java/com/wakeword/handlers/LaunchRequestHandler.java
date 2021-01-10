@@ -5,6 +5,8 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.exception.AskSdkException;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.interfaces.alexa.presentation.apl.AutoPageCommand;
+import com.amazon.ask.model.interfaces.alexa.presentation.apl.ExecuteCommandsDirective;
 import com.amazon.ask.model.interfaces.alexa.presentation.apl.RenderDocumentDirective;
 import com.amazon.ask.request.RequestHelper;
 import com.amazon.ask.response.ResponseBuilder;
@@ -19,6 +21,7 @@ import com.wakeword.dto.MediaItem;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -36,93 +39,73 @@ public class LaunchRequestHandler implements RequestHandler  {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
     	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
-    	
-   	
-    	try {
+    	String albumsString, speechText, albumsJson = null;
+/*
+ *     	try {
         	if (persistentAttributes.containsKey("PremiumAccess")) {
         		System.out.println("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
         	}
     	} catch (Exception e) {
     		System.out.println(e.getMessage());
     	}
-    	
     	boolean hasPremiumAccess = false;
     	persistentAttributes.put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
-    	String albumsString = null;
-    	String albumsJson = null;
-
-    	
-    	if (googleToken == null)
+ */
+    	if (googleToken == null || (!PhotoManager.validateToken(googleToken)))
     	{
-            String speechText = "Please use the Alexa app to link your Google account with My Photos.";
-
+            speechText = "Please use the Alexa application to link your Google account with My Photos.";
             return input.getResponseBuilder()
                     .withSpeech(speechText)
                     .withLinkAccountCard()
                     .build();    	
         } else {
-    		if(PhotoManager.validateToken(googleToken)) {       		
         		ObjectMapper objectMapper = new ObjectMapper();      		
-    			
     			albumsString = PhotoManager.listAlbums(googleToken);
     			try {
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
             		albumsJson = AplUtil.buildAlbumData(albums);
-            		
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());
     	    	}
-    			System.out.println("ALBUM JSON = " + albumsJson);
-
-    		} else {
-    			// handle invalid google token case
-    		}
+    	    	speechText = "Welcome to My Photos.";
     	}
-    	
+/*    	
     	// test saving album list on session and bought access on Persistent layer
     	input.getAttributesManager().getSessionAttributes().put("AlbumList", albumsString);
     	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
     	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
-    	
-    	
-    	String speechText = "Welcome to My Photos.";
-    	// Check for APL support on the user's device
-        if (RequestHelper.forHandlerInput(input)
-                .getSupportedInterfaces()
-                .getAlexaPresentationAPL() != null) {
-
+*/    	
+        if (AplUtil.supportsApl(input)) {
             try {
                 // Retrieve the JSON document and put into a string/object map
                 ObjectMapper mapper = new ObjectMapper();
-                TypeReference<HashMap<String, Object>> documentMapType = 
-                    new TypeReference<HashMap<String, Object>>() {};
-
+                TypeReference<HashMap<String, Object>> documentMapType = new TypeReference<HashMap<String, Object>>() {};
                 Map<String, Object> document = mapper.readValue(new File("apl_album_list_template.json"), documentMapType);
                 Map<String, Object> data = mapper.readValue(albumsJson, documentMapType);
                 
-                // Use builder methods in the SDK to create the directive.
+                // Instructs the device to play the audio response defined in the specified document 
                 RenderDocumentDirective renderDocumentDirective = RenderDocumentDirective.builder()
                         .withToken("AlbumListToken")
                         .withDocument(document)
                         .withDatasources(data)
                         .build();
 
-                // Add the directive to a responseBuilder. 
-                responseBuilder.addDirective(renderDocumentDirective);
+                return input.getResponseBuilder()
+                        .withSpeech(speechText)
+                        .addDirective(renderDocumentDirective)
+                        .build();
 
             } catch (IOException e) {
                 throw new AskSdkException("Unable to read or deserialize the APL document", e);
             }
         } else {
-            // Change the speech output since the device does not have a screen.
-            speechText += " This example would be more interesting on a device with a screen, such as an Echo Show or Fire TV.";
+            speechText = "My Photos is designed for viewing images on a device with a screen, such as an Echo Show or Fire TV.";
         }
 
-        // add the speech to the response and return it.
-
+        // add the speech to a simple card response and return it for the case of a device w/out a screen.
         return responseBuilder
             .withSpeech(speechText)
-            .withSimpleCard("Hello World with APL", speechText)
+            .withSimpleCard("My Photos", speechText)
             .build();
 	}
 

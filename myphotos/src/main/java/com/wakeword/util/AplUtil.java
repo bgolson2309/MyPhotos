@@ -1,5 +1,7 @@
 package com.wakeword.util;
 
+import com.amazon.ask.dispatcher.request.handler.HandlerInput;
+import com.amazon.ask.model.SupportedInterfaces;
 import com.wakeword.dto.Album;
 import com.wakeword.dto.MediaItem;
 
@@ -144,4 +146,10 @@ public class AplUtil {
 		jsonPhotosData = jsonPhotosData + photos_bottom;
 		return jsonPhotosData;
 	}
+	
+    public static boolean supportsApl(HandlerInput input) {
+        SupportedInterfaces supportedInterfaces = input.getRequestEnvelope().getContext().getSystem().getDevice().getSupportedInterfaces();
+        return supportedInterfaces.getAlexaPresentationAPL() != null;
+    }
+    
 }
