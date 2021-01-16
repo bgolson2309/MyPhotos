@@ -51,6 +51,7 @@ public class Constants {
     //custom intents
     public static final String EMAIL_JOURNAL_INTENT = "EmailJournalIntent";
     public static final String LIST_ALBUMS_INTENT = "ListAlbumsIntent";
+    public static final String LIST_IMAGES_INTENT = "ListImagesIntent";
     public static final String SET_FAVORITE_TEAM_INTENT = "SetFavoriteTeamIntent";
     public static final String LOG_RUN_INTENT = "LogRunIntent";
     public static final String DISPLAY_RUNS_INTENT = "DisplayRunsIntent";

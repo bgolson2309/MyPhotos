@@ -65,11 +65,23 @@ public class LaunchRequestHandler implements RequestHandler  {
     	    	speechText = "Welcome to My Photos.";
     	}
 /*    	
-    	// test saving album list on session and bought access on Persistent layer
+    		// test saving album list on session and bought access on Persistent layer
     	input.getAttributesManager().getSessionAttributes().put("AlbumList", albumsString);
     	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
     	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
-*/    	
+   			//test filter by category
+    	String[] categories = new String[2];
+    	categories[0] = "\"" + "PEOPLE" + "\"";
+    	categories[1] = "\"" + "FOOD" + "\"";
+    	String catResults = PhotoManager.searchMediaByCategories(googleToken, categories);
+    	System.out.println("CAT = "+catResults);
+    		// list most recent 100 images
+       	String response = PhotoManager.listMedia(googleToken);
+    	System.out.println("LIST MEDIA RESPONSE = " + response);
+*/ 
+    	
+
+    	
         if (AplUtil.supportsApl(input)) {
             try {
                 // Retrieve the JSON document and put into a string/object map
