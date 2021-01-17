@@ -51,7 +51,7 @@ public class AplUtil {
 	
 	public static String comma = ","; 
 	public static String album_bottom = "        ]," + 
-			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/icon_108_A2Z.png\"," + 
+			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png\"," + 
 			"        \"hintText\": \"Try, \\\"Alexa, ask My Photos to open first album.\\\"\"" + 
 			"    }" + 
 			"}";
@@ -97,7 +97,7 @@ public class AplUtil {
 			"            }";
 	
 	public static String photos_bottom = "        ],\r\n" + 
-			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/icon_108_A2Z.png\",\r\n" + 
+			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png\",\r\n" + 
 			"        \"hintText\": \"Try, \\\"Alexa, ask My Photos to begin slideshow.\\\"\"\r\n" + 
 			"    }\r\n" + 
 			"}";
