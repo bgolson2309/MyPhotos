@@ -1,0 +1,56 @@
+{
+    "imageTemplateData": {
+        "type": "object",
+        "objectId": "imageSample",
+        "properties": {
+            "backgroundImage": {
+                "contentDescription": null,
+                "smallSourceUrl": null,
+                "largeSourceUrl": null,
+                "sources": [
+                    {
+                        "url": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/background_black.jpg",
+                        "size": "small",
+                        "widthPixels": 0,
+                        "heightPixels": 0
+                    },
+                    {
+                        "url": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/background_black.jpg",
+                        "size": "large",
+                        "widthPixels": 0,
+                        "heightPixels": 0
+                    }
+                ]
+            },
+            "image": {
+                "contentDescription": "{image-description}",
+                "smallSourceUrl": null,
+                "largeSourceUrl": null,
+                "sources": [
+                    {
+                        "url": "{image-url-small}",
+                        "size": "small",
+                        "widthPixels": 0,
+                        "heightPixels": 0
+                    },
+                    {
+                        "url": "{image-url-large}",
+                        "size": "large",
+                        "widthPixels": 0,
+                        "heightPixels": 0
+                    }
+                ]
+            },
+            "title": "{image-title}",
+            "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png",
+            "cheeseSpeechSSML": "<speak>But in reality, mice prefer grains, fruits, and manmade foods that are high in sugar, and tend to turn up their noses at very smelly foods, like cheese. In fact, a 2006 study found that mice actively avoid cheese and dairy in general.</speak>"
+        },
+        "transformers": [
+            {
+                "inputPath": "cheeseSpeechSSML",
+                "transformer": "ssmlToSpeech",
+                "outputName": "cheeseInfoSpeech"
+            }
+        ]
+    }
+}
