@@ -69,17 +69,17 @@ public class LaunchRequestHandler implements RequestHandler  {
     	input.getAttributesManager().getSessionAttributes().put("AlbumList", albumsString);
     	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
     	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
-   			//test filter by category
-    	String[] categories = new String[2];
-    	categories[0] = "\"" + "PEOPLE" + "\"";
-    	categories[1] = "\"" + "FOOD" + "\"";
-    	String catResults = PhotoManager.searchMediaByCategories(googleToken, categories);
-    	System.out.println("CAT = "+catResults);
-    		// list most recent 100 images
+    	    		// list most recent 100 images
        	String response = PhotoManager.listMedia(googleToken);
     	System.out.println("LIST MEDIA RESPONSE = " + response);
-*/ 
-    	
+   			//test filter by category
+
+    	String[] categories = new String[1];
+    	categories[0] = "\"" + "PETS" + "\"";
+    	String catResults = PhotoManager.searchMediaByCategories(googleToken, categories);
+    	System.out.println("CAT = "+catResults);
+
+ */	
 
     	
         if (AplUtil.supportsApl(input)) {

@@ -8,6 +8,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
 import com.amazon.ask.exception.AskSdkException;
 import com.amazon.ask.model.IntentRequest;
+import com.amazon.ask.request.RequestHelper;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.interfaces.alexa.presentation.apl.RenderDocumentDirective;
 import com.amazon.ask.model.interfaces.viewport.ViewportState;
@@ -22,10 +23,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class ListImagesIntentHandler implements IntentRequestHandler  {
+public class FilterImagesIntentHandler implements IntentRequestHandler  {
     
 	public boolean canHandle(HandlerInput input, IntentRequest intentRequest) {
-		return (input.matches(intentName(Constants.LIST_IMAGES_INTENT)));
+		return (input.matches(intentName(Constants.FILTER_IMAGES_INTENT)));
 	}
 	
 	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
@@ -38,7 +39,12 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
 		
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	String imagesResponse, speechText, imagesJson = null;
-
+		RequestHelper requestHelper = RequestHelper.forHandlerInput(input);
+		//get the slot ID for the Google API
+		String category = requestHelper.getSlot(Constants.CATEGORY).get().getResolutions().getResolutionsPerAuthority().get(0).getValues().get(0).getValue().getId();
+    	Optional<String> spokenCategory = requestHelper.getSlotValue(Constants.CATEGORY);
+		String[] categories = {category};
+    	
     	if (googleToken == null )
     	{
             speechText = "Please use the Alexa application to link your Google account with My Photos.";
@@ -49,14 +55,14 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
         } else {
         		ObjectMapper objectMapper = new ObjectMapper();      		
     			try {
-            		imagesResponse = PhotoManager.listMedia(googleToken);
+            		imagesResponse = PhotoManager.searchMediaByCategories(googleToken, categories);
        			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
-       			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
-       			 	System.out.println("PHOTOS JSON = " + imagesJson);	
+       			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Photos filtered by " + spokenCategory.get());
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());
     	    	}
-    	    	speechText = "Here's your most recent images.";
+    	    	speechText = "Here's your photos filtered by category " + spokenCategory.get();
+    	    	
     	}
     	
 		 if (AplUtil.supportsApl(input)) {

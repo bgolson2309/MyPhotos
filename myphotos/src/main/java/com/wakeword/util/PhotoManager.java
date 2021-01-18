@@ -162,17 +162,23 @@ public class PhotoManager {
     	 		"      \"includedContentCategories\": [";
     	 
          for (int i=0; i < categories.length; i++) {
-        	 cat = cat + categories[i];
+        	 cat = cat + "\"" + categories[i] + "\"";
         	 if (i < (categories.length -1)) {
             	 cat = cat + ",";
         	 }
          }
-         cat = cat + "      ]" + 
-         		"    }" + 
+         
+         cat = cat + " ]" + 
+         		"    }," +
+	   	 		"    \"mediaTypeFilter\": {" + 
+	   	 		"      \"mediaTypes\": [" + 
+	   	 		"        \"PHOTO\"" + 
+	   	 		"      ]" + 
+	   	 		"    }" +       		 
          		"  }" + 
          		"}";
          
-       System.out.println(cat);
+       System.out.println("FILTER = " + cat);
     	HttpClient client = HttpClient.newHttpClient();
     	HttpRequest request = HttpRequest.newBuilder()
     	      .uri(URI.create("https://photoslibrary.googleapis.com/v1/mediaItems:search?pageSize=100"))
