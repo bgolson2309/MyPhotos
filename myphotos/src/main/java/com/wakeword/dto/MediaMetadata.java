@@ -44,7 +44,7 @@ public class MediaMetadata {
 		    TimeZone utc = TimeZone.getTimeZone("UTC");
 		    SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 		    sourceFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-		    SimpleDateFormat destFormat = new SimpleDateFormat("MM/dd/yy hh:mm");
+		    SimpleDateFormat destFormat = new SimpleDateFormat("MM/dd/yy hh:mm"); 
 		    sourceFormat.setTimeZone(utc);
 		    Date convertedDate = sourceFormat.parse(dateStr);
 		    readableDate = destFormat.format(convertedDate);
