@@ -38,12 +38,13 @@ public class MediaMetadata {
 	public void setPhoto(Photo photo) {
 		this.photo = photo;
 	}
-	public static String convertToReadableFormat(String dateStr) {
+	public String convertToReadableFormat(String dateStr) {
 		String readableDate = null;
 		try {
 		    TimeZone utc = TimeZone.getTimeZone("UTC");
-		    SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-		    SimpleDateFormat destFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		    SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+		    sourceFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+		    SimpleDateFormat destFormat = new SimpleDateFormat("MM/dd/yy hh:mm");
 		    sourceFormat.setTimeZone(utc);
 		    Date convertedDate = sourceFormat.parse(dateStr);
 		    readableDate = destFormat.format(convertedDate);

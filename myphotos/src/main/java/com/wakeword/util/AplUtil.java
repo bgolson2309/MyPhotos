@@ -136,7 +136,8 @@ public class AplUtil {
 				jsonPhotosData = jsonPhotosData + photos_template;
 				jsonPhotosData=jsonPhotosData.replace("{right-left}","left");
 			}
-			jsonPhotosData=jsonPhotosData.replace("{image-name}", media[i].getMediaMetadata().getCreationTime());
+			String formattedDateTime = media[i].getMediaMetadata().convertToReadableFormat(media[i].getMediaMetadata().getCreationTime());
+			jsonPhotosData=jsonPhotosData.replace("{image-name}", formattedDateTime);
 			jsonPhotosData=jsonPhotosData.replace("{baseURL}", media[i].getBaseUrl());
 			jsonPhotosData=jsonPhotosData.replace("{width-px}", String.valueOf(currentPixelWidth));
 			jsonPhotosData=jsonPhotosData.replace("{height-px}", String.valueOf(currentPixelHeight));
