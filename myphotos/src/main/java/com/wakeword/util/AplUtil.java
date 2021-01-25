@@ -137,7 +137,7 @@ public class AplUtil {
 			
 	public static String photos_template = "            {\r\n" + 
 			"                \"primaryText\": \"{image-name}\",\r\n" + 
-			"                \"imageAlignment\": \"right-left\",\r\n" + 
+			"                \"imageAlignment\": \"{right-left}\",\r\n" + 
 			"                \"imageSource\": \"{baseURL}=w{width-px}-h{height-px}\",\r\n" + 
 			"                \"primaryAction\": {\r\n" + 
 			"				    \"type\": \"SendEvent\",\r\n" + 
