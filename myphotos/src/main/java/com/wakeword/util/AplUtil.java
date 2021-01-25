@@ -7,6 +7,58 @@ import com.wakeword.dto.MediaItem;
 
 public class AplUtil {
 
+	public static String media_item_data = "{" + 
+			"    \"imageTemplateData\": {" + 
+			"        \"type\": \"object\"," + 
+			"        \"objectId\": \"imageSample\"," + 
+			"        \"properties\": {" + 
+			"            \"backgroundImage\": {" + 
+			"                \"contentDescription\": null," + 
+			"                \"smallSourceUrl\": null," + 
+			"                \"largeSourceUrl\": null," + 
+			"                \"sources\": [" + 
+			"                    {" + 
+			"                        \"url\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/background_black.jpg\"," + 
+			"                        \"size\": \"small\"," + 
+			"                        \"widthPixels\": 0," + 
+			"                        \"heightPixels\": 0" + 
+			"                    }," + 
+			"                    {" + 
+			"                        \"url\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/background_black.jpg\"," + 
+			"                        \"size\": \"large\"," + 
+			"                        \"widthPixels\": 0," + 
+			"                        \"heightPixels\": 0" + 
+			"                    }" + 
+			"                ]" + 
+			"            }," + 
+			"            \"image\": {" + 
+			"                \"contentDescription\": \"{image-description}\"," + 
+			"                \"smallSourceUrl\": null," + 
+			"                \"largeSourceUrl\": null," + 
+			"                \"sources\": [" + 
+			"                    {" + 
+			"                        \"url\": \"{baseURL}=w{width-px}-h{height-px}\"," + 
+			"                        \"size\": \"small\"," + 
+			"                        \"widthPixels\": 0," + 
+			"                        \"heightPixels\": 0" + 
+			"                    }," + 
+			"                    {" + 
+			"                        \"url\": \"{baseURL}=w{width-px}-h{height-px}\"," + 
+			"                        \"size\": \"large\"," + 
+			"                        \"widthPixels\": 0," + 
+			"                        \"heightPixels\": 0" + 
+			"                    }" + 
+			"                ]" + 
+			"            }," + 
+			"            \"title\": \"{image-title}\"," + 
+			"            \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png\"" + 
+			"        }" + 
+			"    }" + 
+			"}";
+	
+	
+	
+	
 	public static String album_list_top = "{" + 
 			"    \"imageListData\": {" + 
 			"        \"type\": \"object\"," + 
@@ -146,6 +198,24 @@ public class AplUtil {
 		
 		jsonPhotosData = jsonPhotosData + photos_bottom;
 		return jsonPhotosData;
+	}
+	
+	public static String buildSelectedMediaData(MediaItem media, int currentPixelWidth, int currentPixelHeight) {
+		
+		String jsonMediasData = media_item_data;
+		
+		String formattedDateTime = media.getMediaMetadata().convertToReadableFormat(media.getMediaMetadata().getCreationTime());
+		jsonMediasData=jsonMediasData.replace("{image-title}", formattedDateTime);
+		jsonMediasData=jsonMediasData.replace("{image-description}", media.getFilename());
+		jsonMediasData=jsonMediasData.replace("{baseURL}", media.getBaseUrl());
+		jsonMediasData=jsonMediasData.replace("{baseURL}", media.getBaseUrl());
+		jsonMediasData=jsonMediasData.replace("{width-px}", String.valueOf(currentPixelWidth));
+		jsonMediasData=jsonMediasData.replace("{width-px}", String.valueOf(currentPixelWidth));
+		jsonMediasData=jsonMediasData.replace("{height-px}", String.valueOf(currentPixelHeight));
+		jsonMediasData=jsonMediasData.replace("{height-px}", String.valueOf(currentPixelHeight));
+		 System.out.println("MEDIA JSON = " + jsonMediasData);	
+		
+		return jsonMediasData;
 	}
 	
     public static boolean supportsApl(HandlerInput input) {

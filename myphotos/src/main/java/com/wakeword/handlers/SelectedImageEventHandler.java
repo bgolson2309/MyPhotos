@@ -51,20 +51,19 @@ public class SelectedImageEventHandler implements UserEventHandler {
 		 String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
 		 ArrayList argumentsObject =  (ArrayList) userEvent.getArguments();
 		 String imageUUID = (String) argumentsObject.get(1);
-		 System.out.println("SELECTED IMAGE UUID = " + imageUUID);
-	//	 // call API to get media Item >> //String selectedAlbumAPIResponse = PhotoManager.listAlbumMedia(googleToken, albumId);
- 
+		 String selectedImageAPIResponse = PhotoManager.getMediaItem(googleToken, imageUUID);
+		 System.out.println("SelectedImageAPIResponse = " + selectedImageAPIResponse);
+
 		 //build json data of MediaItems for the selected album
-		 String photosJson = null;
+		 String photoJson = null;
 		 ObjectMapper objectMapper = new ObjectMapper();      		
 
-//		 try {
-//			 MediaItem[] media = objectMapper.readValue(selectedAlbumAPIResponse.substring(17), MediaItem[].class); 
-//			 photosJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, albumTitle);
-//			 System.out.println("PHOTOS JSON = " + photosJson);	
-//		 } catch (Exception e) {
-//	    	System.out.println(e.getMessage());
-//		 }
+		 try {
+			 MediaItem media = objectMapper.readValue(selectedImageAPIResponse, MediaItem.class); 
+			 photoJson = AplUtil.buildSelectedMediaData(media, currentPixelWidth, currentPixelHeight);
+		 } catch (Exception e) {
+	    	System.out.println(e.getMessage());
+		 }
 		 
 		 // build response for user
 		 ResponseBuilder responseBuilder = input.getResponseBuilder();
@@ -75,10 +74,9 @@ public class SelectedImageEventHandler implements UserEventHandler {
                   ObjectMapper mapper = new ObjectMapper();
                   TypeReference<HashMap<String, Object>> documentMapType = new TypeReference<HashMap<String, Object>>() {};
                   Map<String, Object> document = mapper.readValue(new File("apl_image_view_template.json"), documentMapType);
-                  Map<String, Object> data = mapper.readValue(new File("apl_image_view_data.json"), documentMapType);
-//                  Map<String, Object> data = mapper.readValue(photosJson, documentMapType);
+//                  Map<String, Object> data = mapper.readValue(new File("apl_image_view_data.json"), documentMapType);
+                  Map<String, Object> data = mapper.readValue(photoJson, documentMapType);
 
-                  // Use builder methods in the SDK to create the directive.
                   RenderDocumentDirective renderDocumentDirective = RenderDocumentDirective.builder()
                           .withToken("ViewImageToken")
                           .withDocument(document)

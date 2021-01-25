@@ -23,34 +23,26 @@
                 ]
             },
             "image": {
-                "contentDescription": "{image-description}",
+                "contentDescription": "20210116_100026.jpg",
                 "smallSourceUrl": null,
                 "largeSourceUrl": null,
                 "sources": [
                     {
-                        "url": "{image-url-small}",
+                        "url": "https://lh3.googleusercontent.com/lr/AFBm1_bi7R0ayRbaahv7ACy8SJ6pB6fX_ljONPTGwVqwcELskrHygIFuUSbOibJpjF4QdfSAMfKZf5VNZWd7WpUM3yvO2zSiAPHOxsm0EprhIpd5hlXSikNtv1Bi2BowxMVymrcmFrj1A2Pq9DzY72CFoM-D7-WDvGLSYTaOMMSM8SQ0TRiYKDlwiydSdWV850mMFDiFsnnsPBtNY5iq3aYMFHrCFEirPFOAx2sIIIh2VCNJes7lq6wU9Ypv8G3tdL0T9wKRud4_a_2wvPeiM2QqIfuUlktFjaBbgZqbh7ioz1E9NFSQ_tgIuXCWWYESHMLn6m16nrgw2mFIjQ2lhQhq1UX3iPUKdT8tV_X3FDsLyqtKvL5qqMh_aHJbRkB6vZ7TFG-2ItbluWTyY1UOd4W-jCKN15A2oRTDgadG3tRQI37gmeEBfWi3K0S30whP87N9Hqz6O8RAjZ73zG5ExDG7RvykUznM957Oqij-4Mg4fl2KyIx09_yGy2qfJ_yYaFHD124kh-6wQflrFUJ2oHoX7Dp452yNHkmvQP9u27Da5Q3i0iRHVLHtrt5lQP4mOulPyvBfe_2eqt00w7ar7SDXH2-vFUCcMh-qJjfUHl4yCn1ZPoo6FZ3wk7fRDrs5tzBOtWaTRj97gtqbuEAKFvIX3uTGS84CjMivnwLpR9PqEKum7G8nXIYR2JJpkxcLafJWNatcgvJ2K1smX2GxemUY9t8LgxyoURRnRt6lbQSU19TqDA_eBaUJHyGLJEu5-S1IRMGBFHVLguNoe2jPGi6w8C0XCvQFPheho2eJTSeq1wkIHIm8bgg893cg=w1024-h600",
                         "size": "small",
                         "widthPixels": 0,
                         "heightPixels": 0
                     },
                     {
-                        "url": "{image-url-large}",
+                        "url": "https://lh3.googleusercontent.com/lr/AFBm1_bi7R0ayRbaahv7ACy8SJ6pB6fX_ljONPTGwVqwcELskrHygIFuUSbOibJpjF4QdfSAMfKZf5VNZWd7WpUM3yvO2zSiAPHOxsm0EprhIpd5hlXSikNtv1Bi2BowxMVymrcmFrj1A2Pq9DzY72CFoM-D7-WDvGLSYTaOMMSM8SQ0TRiYKDlwiydSdWV850mMFDiFsnnsPBtNY5iq3aYMFHrCFEirPFOAx2sIIIh2VCNJes7lq6wU9Ypv8G3tdL0T9wKRud4_a_2wvPeiM2QqIfuUlktFjaBbgZqbh7ioz1E9NFSQ_tgIuXCWWYESHMLn6m16nrgw2mFIjQ2lhQhq1UX3iPUKdT8tV_X3FDsLyqtKvL5qqMh_aHJbRkB6vZ7TFG-2ItbluWTyY1UOd4W-jCKN15A2oRTDgadG3tRQI37gmeEBfWi3K0S30whP87N9Hqz6O8RAjZ73zG5ExDG7RvykUznM957Oqij-4Mg4fl2KyIx09_yGy2qfJ_yYaFHD124kh-6wQflrFUJ2oHoX7Dp452yNHkmvQP9u27Da5Q3i0iRHVLHtrt5lQP4mOulPyvBfe_2eqt00w7ar7SDXH2-vFUCcMh-qJjfUHl4yCn1ZPoo6FZ3wk7fRDrs5tzBOtWaTRj97gtqbuEAKFvIX3uTGS84CjMivnwLpR9PqEKum7G8nXIYR2JJpkxcLafJWNatcgvJ2K1smX2GxemUY9t8LgxyoURRnRt6lbQSU19TqDA_eBaUJHyGLJEu5-S1IRMGBFHVLguNoe2jPGi6w8C0XCvQFPheho2eJTSeq1wkIHIm8bgg893cg=w1024-h600",
                         "size": "large",
                         "widthPixels": 0,
                         "heightPixels": 0
                     }
                 ]
             },
-            "title": "{image-title}",
-            "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png",
-            "cheeseSpeechSSML": "<speak>But in reality, mice prefer grains, fruits, and manmade foods that are high in sugar, and tend to turn up their noses at very smelly foods, like cheese. In fact, a 2006 study found that mice actively avoid cheese and dairy in general.</speak>"
-        },
-        "transformers": [
-            {
-                "inputPath": "cheeseSpeechSSML",
-                "transformer": "ssmlToSpeech",
-                "outputName": "cheeseInfoSpeech"
-            }
-        ]
+            "title": "image-title",
+            "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png"
+        }
     }
 }

@@ -147,6 +147,31 @@ public class PhotoManager {
     }
     
     /*
+     * Retrieves one media item for per the given id
+     */
+    public static String getMediaItem(String token, String mediaID)
+    {
+    	
+    	HttpClient client = HttpClient.newHttpClient();
+    	HttpRequest request = HttpRequest.newBuilder()
+    	      .uri(URI.create("https://photoslibrary.googleapis.com/v1/mediaItems/" + mediaID))
+    	      .setHeader("Authorization", " Bearer " + token)
+    	      .GET()
+    	      .build();
+    	  
+    	HttpResponse<String> response = null;
+		try {
+			
+			response = client.send(request, HttpResponse.BodyHandlers.ofString());
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
+		}
+
+        return response.body();
+    }
+    
+    
+    /*
      * https://lh3.googleusercontent.com/lr/AFBm1_YNc3EyLwMkzEbjO7EP-KSNXmqthRAdRSQuee2cKxSUnBK6ruWxsQ3zNbE2Yv1FO7o9aKAde24aHEZhuq3njm1vFzuM99rEfRnU25GgNlxERLkquINbSekJkftv-Q6ZR9yz9Yeb7ipdwAqm8Ra71QQcTGkzbj5rrLJ7zbdkH04w7h1kcf9NwPZtYcTJ_9BfiyjNJz_6n0W5dySDriqMTkvs4hKkHFmLC8sV5P2wQw3IeL84sFF8I81Hza9SxqYmIyMyq9LL9iRu_3lPJa6aNNONcnw1I6b-PVkydVABekl2htCNtnMfgclsy6Ltem1cgckW4KadGUKS9gqvQtJ5vZpT7V_ZyecG0ddjnd648DRkDin7eJL4ATqpgaqrjCZPqLtmMNki99xrx5xAJnVhiUlZ1HG-ZjHSjQyDYXOmq_OKBiYEmHFqacF-9OcHr75fejL8w7ST-zhDmgr_nTtWGpWMAMovt2pG-MEZGiTLFIh8DcsJW1v_-hvaEqI_tuo_cUkOLI7CaWr_65mbuAHURGKmPllZhUSPxkP2SBvAVxXGemXy9YqT5PKXWbxQYHzoK1LqcwRD_BjGK6GXNOrDWB21hFwdKtddBC883MqWeeTlIJJAexiUOQ3kTaRhpXN_l_IB5_wtZEAMWMVgjs5BI1JrAaPD-6qYu4fTOj83HXLCC_-KbAkmrz_4qrqU-dCCNPsHIH990o9meuFQy-uQwKANuPGrY5GYRA300a-ea-4yk5kKjRHr5U6x4_zSlfY6TktnJVeNW2puZJGJsjnC5uc=w2048-h1024
      * Use media base URL to display image per the UI size (https://developer.amazon.com/en-US/docs/alexa/alexa-presentation-language/apl-viewport-property.html)
      * https://developers.google.com/photos/library/guides/access-media-items 

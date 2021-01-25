@@ -37,6 +37,7 @@
                             {
                                 "type": "AlexaHeader",
                                 "headerTitle": "${payload.imageTemplateData.properties.title}",
+                                "headerBackButton": true,
                                 "headerAttributionImage": "${payload.imageTemplateData.properties.logoUrl}"
                             },
                             {
