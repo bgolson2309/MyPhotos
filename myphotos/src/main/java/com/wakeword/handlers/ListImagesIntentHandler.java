@@ -4,6 +4,7 @@ import com.wakeword.dto.MediaItem;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
 import com.amazon.ask.exception.AskSdkException;
@@ -30,8 +31,8 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
 	
 	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
-    	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
-
+        AttributesManager attributesManager = input.getAttributesManager();
+        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
 		ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
 		int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
 		int currentPixelHeight = viewportState.getCurrentPixelHeight().intValueExact();
@@ -52,6 +53,9 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
             		imagesResponse = PhotoManager.listMedia(googleToken);
        			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
+                	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
+                	sessionAttributes.put("SESSION_MEDIA_ITEMS_DATA", imagesResponse);
+                	attributesManager.setSessionAttributes(sessionAttributes);
        			 	System.out.println("PHOTOS JSON = " + imagesJson);	
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());

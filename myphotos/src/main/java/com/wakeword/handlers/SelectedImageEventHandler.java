@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.UserEventHandler;
 import com.amazon.ask.exception.AskSdkException;
@@ -41,7 +42,9 @@ public class SelectedImageEventHandler implements UserEventHandler {
      * 2 = Album ID for making Google API call for Media Items
      */
     public Optional<Response> handle(HandlerInput input, UserEvent userEvent) {
-    	 
+    	 AttributesManager attributesManager = input.getAttributesManager();
+         Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
+        
     	 // get viewport info
 		 ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
 		 int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
@@ -61,6 +64,9 @@ public class SelectedImageEventHandler implements UserEventHandler {
 		 try {
 			 MediaItem media = objectMapper.readValue(selectedImageAPIResponse, MediaItem.class); 
 			 photoJson = AplUtil.buildSelectedMediaData(media, currentPixelWidth, currentPixelHeight);
+         	 sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_ITEM_VIEW");
+         	 sessionAttributes.put("SESSION_MEDIA_ITEM_DATA", selectedImageAPIResponse);
+        	 attributesManager.setSessionAttributes(sessionAttributes);
 		 } catch (Exception e) {
 	    	System.out.println(e.getMessage());
 		 }
