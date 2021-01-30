@@ -1,5 +1,6 @@
 package com.wakeword.handlers;
 
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.exception.AskSdkException;
@@ -32,7 +33,10 @@ public class LaunchRequestHandler implements RequestHandler  {
     }
     public Optional<Response> handle(HandlerInput input) {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
+        AttributesManager attributesManager = input.getAttributesManager();
+        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
     	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
+    	
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	String albumsString, speechText, albumsJson = null;
 /*
@@ -58,19 +62,23 @@ public class LaunchRequestHandler implements RequestHandler  {
     			albumsString = PhotoManager.listAlbums(googleToken);
     			try {
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
+                	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
+                	sessionAttributes.put("SESSION_ALBUMS_DATA", albumsString);
+
             		albumsJson = AplUtil.buildAlbumData(albums);
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());
     	    	}
     	    	speechText = "Welcome to My Photos.";
     	}
-/*    	
-    		// test saving album list on session and bought access on Persistent layer
-    	input.getAttributesManager().getSessionAttributes().put("AlbumList", albumsString);
+    	
+    	// This saves the attributes to the session
+    	attributesManager.setSessionAttributes(sessionAttributes);
+    	// ...and this saves long term attributes to Dynamo
     	input.getAttributesManager().setPersistentAttributes(persistentAttributes);
-    	input.getAttributesManager().savePersistentAttributes(); // Save long term attributes to Dynamo
+    	input.getAttributesManager().savePersistentAttributes(); 
 
- */	
+	
     	
         if (AplUtil.supportsApl(input)) {
             try {
