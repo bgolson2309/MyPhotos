@@ -63,8 +63,6 @@ public class LaunchRequestHandler implements RequestHandler  {
     			try {
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
                 	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
-                	sessionAttributes.put("SESSION_ALBUMS_DATA", albumsString);
-
             		albumsJson = AplUtil.buildAlbumData(albums);
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());

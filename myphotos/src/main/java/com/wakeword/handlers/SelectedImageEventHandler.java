@@ -65,7 +65,7 @@ public class SelectedImageEventHandler implements UserEventHandler {
 			 MediaItem media = objectMapper.readValue(selectedImageAPIResponse, MediaItem.class); 
 			 photoJson = AplUtil.buildSelectedMediaData(media, currentPixelWidth, currentPixelHeight);
          	 sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_ITEM_VIEW");
-         	 sessionAttributes.put("SESSION_MEDIA_ITEM_DATA", selectedImageAPIResponse);
+         	 sessionAttributes.put("SESSION_SELECTED_IMAGE_UUID", imageUUID);
         	 attributesManager.setSessionAttributes(sessionAttributes);
 		 } catch (Exception e) {
 	    	System.out.println(e.getMessage());

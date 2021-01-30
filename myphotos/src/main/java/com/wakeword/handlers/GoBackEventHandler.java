@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.UserEventHandler;
 import com.amazon.ask.exception.AskSdkException;
@@ -43,8 +44,10 @@ public class GoBackEventHandler implements UserEventHandler {
     public Optional<Response> handle(HandlerInput input, UserEvent userEvent) {
     	 
         ResponseBuilder responseBuilder = input.getResponseBuilder();
-    	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
-    	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
+        AttributesManager attributesManager = input.getAttributesManager();
+        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
+        
+        String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	String albumsString, speechText, albumsJson = null;
 
     	if (googleToken == null )

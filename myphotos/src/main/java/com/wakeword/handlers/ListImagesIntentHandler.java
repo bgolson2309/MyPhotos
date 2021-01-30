@@ -54,7 +54,6 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
        			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
                 	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
-                	sessionAttributes.put("SESSION_MEDIA_ITEMS_DATA", imagesResponse);
                 	attributesManager.setSessionAttributes(sessionAttributes);
        			 	System.out.println("PHOTOS JSON = " + imagesJson);	
     	    	} catch (Exception e) {

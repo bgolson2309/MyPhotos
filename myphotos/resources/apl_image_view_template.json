@@ -60,6 +60,49 @@
                                         "imageAspectRatio": "${@viewportProfile == @hubRoundSmall ? 'square' : 'standard_landscape'}"
                                     }
                                 ]
+                            },
+                            {
+                                "type": "Container",
+                                "description": "buttons",
+                                "items": [
+                                    {
+                                        "type": "AlexaButton",
+                                        "buttonText": "Back",
+                                        "buttonStyle": "outlined",
+                                        "accessibilityLabel": "back",
+										"primaryAction": {
+											"type": "SendEvent",
+											"arguments": [
+											  "BackButton"
+											]
+										  }
+                                    },
+                                    {
+                                        "type": "AlexaButton",
+                                        "buttonText": "< Prev",
+                                        "buttonStyle": "outlined",
+										"primaryAction": {
+											"type": "SendEvent",
+											"arguments": [
+											  "PrevButton"
+											]
+										  }
+                                    },
+                                    {
+                                        "type": "AlexaButton",
+                                        "buttonText": "Next >",
+                                        "buttonStyle": "outlined",
+										"primaryAction": {
+											"type": "SendEvent",
+											"arguments": [
+											  "NextButton"
+											]
+										  }
+                                    }
+                                ],
+                                "alignItems": "stretch",
+                                "direction": "row",
+                                "spacing": "5"
                             }
                         ]
                     }
