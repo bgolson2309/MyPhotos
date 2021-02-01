@@ -1,5 +1,7 @@
 package com.wakeword.util;
 
+import com.wakeword.dto.MediaItem;
+
 public class StringUtils {
 
 	
@@ -13,4 +15,15 @@ public class StringUtils {
 	    }  
 	    return capitalizeWord.trim();  
 	} 
+	
+	public static String makeImageList(MediaItem[] media)
+	{
+		String imageList = null;
+		for (int i = 0; i < media.length; i++)
+		{
+			imageList = imageList + media[i].getId() + ",";
+		}
+		
+		return imageList;
+	}
 }

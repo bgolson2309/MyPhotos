@@ -4,6 +4,7 @@ import com.wakeword.dto.Album;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
 import com.amazon.ask.exception.AskSdkException;
@@ -30,7 +31,9 @@ public class ListAlbumsIntentHandler implements IntentRequestHandler  {
 	}
 	
 	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
-        ResponseBuilder responseBuilder = input.getResponseBuilder();
+		ResponseBuilder responseBuilder = input.getResponseBuilder();
+		AttributesManager attributesManager = input.getAttributesManager();
+        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
     	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	String albumsString, speechText, albumsJson = null;
@@ -48,6 +51,8 @@ public class ListAlbumsIntentHandler implements IntentRequestHandler  {
     			try {
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
             		albumsJson = AplUtil.buildAlbumData(albums);
+                	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
+       			    sessionAttributes.put("IMAGE_UUID_LIST", "");
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());
     	    	}

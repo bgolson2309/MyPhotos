@@ -4,6 +4,8 @@ import com.wakeword.dto.MediaItem;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
+import com.wakeword.util.StringUtils;
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
 import com.amazon.ask.exception.AskSdkException;
@@ -32,7 +34,8 @@ public class FilterImagesIntentHandler implements IntentRequestHandler  {
 	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
     	Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
-
+        AttributesManager attributesManager = input.getAttributesManager();
+        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
 		ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
 		int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
 		int currentPixelHeight = viewportState.getCurrentPixelHeight().intValueExact();
@@ -57,6 +60,8 @@ public class FilterImagesIntentHandler implements IntentRequestHandler  {
     			try {
             		imagesResponse = PhotoManager.searchMediaByCategories(googleToken, categories);
        			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
+       			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
+
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Photos filtered by " + spokenCategory.get());
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());

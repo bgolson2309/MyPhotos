@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.UserEventHandler;
 import com.amazon.ask.exception.AskSdkException;
@@ -20,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wakeword.dto.MediaItem;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
+import com.wakeword.util.StringUtils;
 
 public class AlbumImagesEventHandler implements UserEventHandler {
 
@@ -41,7 +43,9 @@ public class AlbumImagesEventHandler implements UserEventHandler {
      * 2 = Album ID for making Google API call for Media Items
      */
     public Optional<Response> handle(HandlerInput input, UserEvent userEvent) {
-    	 
+         AttributesManager attributesManager = input.getAttributesManager();
+         Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
+         
     	 // get viewport info
 		 ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
 		 int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
@@ -60,8 +64,8 @@ public class AlbumImagesEventHandler implements UserEventHandler {
 
 		 try {
 			 MediaItem[] media = objectMapper.readValue(selectedAlbumAPIResponse.substring(17), MediaItem[].class); 
+			 sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
 			 photosJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, albumTitle);
-			 System.out.println("PHOTOS JSON = " + photosJson);	
 		 } catch (Exception e) {
 	    	System.out.println(e.getMessage());
 		 }

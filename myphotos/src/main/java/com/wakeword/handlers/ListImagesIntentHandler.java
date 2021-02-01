@@ -4,6 +4,7 @@ import com.wakeword.dto.MediaItem;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
+import com.wakeword.util.StringUtils;
 import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
@@ -54,6 +55,7 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
        			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
                 	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
+       			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
                 	attributesManager.setSessionAttributes(sessionAttributes);
        			 	System.out.println("PHOTOS JSON = " + imagesJson);	
     	    	} catch (Exception e) {
@@ -94,4 +96,5 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
             .withSimpleCard("My Photos", speechText)
             .build();
 	}
+	
 }

@@ -11,6 +11,7 @@ import com.amazon.ask.response.ResponseBuilder;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
+import com.wakeword.util.StringUtils;
 
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -63,11 +64,12 @@ public class LaunchRequestHandler implements RequestHandler  {
     			try {
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
                 	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
+       			    sessionAttributes.put("IMAGE_UUID_LIST", "");
             		albumsJson = AplUtil.buildAlbumData(albums);
     	    	} catch (Exception e) {
     	    		System.out.println(e.getMessage());
     	    	}
-    	    	speechText = "Welcome to My Photos.";
+    	    	speechText = "Welcome to My Images.";
     	}
     	
     	// This saves the attributes to the session

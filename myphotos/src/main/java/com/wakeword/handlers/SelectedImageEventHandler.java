@@ -30,7 +30,7 @@ public class SelectedImageEventHandler implements UserEventHandler {
         // This is a typed handler for UserEvents. An APL skill might have multiple controls that generate UserEvents, use an argument to track the control source - in this case the AlbumImageList 
         ArrayList argumentsObject =  (ArrayList) userEvent.getArguments();
         String eventSourceId = (String) argumentsObject.get(0);
-        return eventSourceId.equals("ImageListItemSelected");
+        return (eventSourceId.equals("ImageListItemSelected") || eventSourceId.equals("PrevButton") || eventSourceId.equals("NextButton"));
     }
 
     @SuppressWarnings("rawtypes")
@@ -53,7 +53,17 @@ public class SelectedImageEventHandler implements UserEventHandler {
 		 // get selected album id and make Google API call
 		 String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
 		 ArrayList argumentsObject =  (ArrayList) userEvent.getArguments();
-		 String imageUUID = (String) argumentsObject.get(1);
+		 String imageUUID = null;
+		 try {
+			 if (argumentsObject.size() > 1) { 
+				 imageUUID = (String) argumentsObject.get(1);
+			 } else {
+				 // get session list and last selected image uuid from session
+			 }
+		 } catch (Exception e) {
+			 // log it
+		 }
+
 		 String selectedImageAPIResponse = PhotoManager.getMediaItem(googleToken, imageUUID);
 		 System.out.println("SelectedImageAPIResponse = " + selectedImageAPIResponse);
 
@@ -80,7 +90,6 @@ public class SelectedImageEventHandler implements UserEventHandler {
                   ObjectMapper mapper = new ObjectMapper();
                   TypeReference<HashMap<String, Object>> documentMapType = new TypeReference<HashMap<String, Object>>() {};
                   Map<String, Object> document = mapper.readValue(new File("apl_image_view_template.json"), documentMapType);
-//                  Map<String, Object> data = mapper.readValue(new File("apl_image_view_data.json"), documentMapType);
                   Map<String, Object> data = mapper.readValue(photoJson, documentMapType);
 
                   RenderDocumentDirective renderDocumentDirective = RenderDocumentDirective.builder()
