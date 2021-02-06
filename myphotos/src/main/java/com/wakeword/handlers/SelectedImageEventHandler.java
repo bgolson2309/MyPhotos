@@ -3,7 +3,9 @@ package com.wakeword.handlers;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -54,14 +56,17 @@ public class SelectedImageEventHandler implements UserEventHandler {
 		 String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
 		 ArrayList argumentsObject =  (ArrayList) userEvent.getArguments();
 		 String imageUUID = null;
+		 String eventSourceId = (String) argumentsObject.get(0);
 		 try {
-			 if (argumentsObject.size() > 1) { 
+			 if (eventSourceId.equals("ImageListItemSelected")) { 
 				 imageUUID = (String) argumentsObject.get(1);
 			 } else {
-				 // get session list and last selected image uuid from session
+			     if (sessionAttributes.containsKey("IMAGE_UUID_LIST")) {
+			    	 imageUUID = getNextImageUUID(eventSourceId, sessionAttributes.get("IMAGE_UUID_LIST").toString(), sessionAttributes.get("SESSION_SELECTED_IMAGE_UUID").toString()); 
+			     }
 			 }
 		 } catch (Exception e) {
-			 // log it
+			 System.out.println(e.getStackTrace());
 		 }
 
 		 String selectedImageAPIResponse = PhotoManager.getMediaItem(googleToken, imageUUID);
@@ -115,5 +120,20 @@ public class SelectedImageEventHandler implements UserEventHandler {
              .withSimpleCard("My Photos", speechText)
              .build();
     	  
+    }
+    
+    private String getNextImageUUID(String btnPressed, String imageList, String currentImgUUID) {
+    	String imageUUID = null;
+    	String[] imageIdArray = imageList.split(",");
+    	List<String> fixedLenghtList = Arrays.asList(imageIdArray); 
+    	ArrayList<String> listOfID = new ArrayList<String>(fixedLenghtList);
+    	int currentImgPos = listOfID.indexOf(currentImgUUID);
+    	if (btnPressed.equals("PrevButton")) {
+    		imageUUID = listOfID.get(currentImgPos - 1);
+    	} else {
+    		imageUUID = listOfID.get(currentImgPos + 1);
+    	}
+    	
+    	return imageUUID;
     }
 }

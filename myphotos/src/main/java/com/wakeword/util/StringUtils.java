@@ -18,7 +18,7 @@ public class StringUtils {
 	
 	public static String makeImageList(MediaItem[] media)
 	{
-		String imageList = null;
+		String imageList = "";
 		for (int i = 0; i < media.length; i++)
 		{
 			imageList = imageList + media[i].getId() + ",";
