@@ -67,6 +67,7 @@
                                 "items": [
                                     {
                                         "type": "AlexaButton",
+                                        "touchForward": true,
                                         "buttonText": "Back",
                                         "buttonStyle": "outlined",
                                         "accessibilityLabel": "back",
@@ -79,7 +80,7 @@
                                     },
                                     {
                                         "type": "AlexaButton",
-                                        "touchForward": false,
+                                        "touchForward": true,
                                         "buttonText": "< Prev",
                                         "buttonStyle": "outlined",
 										"primaryAction": {
