@@ -88,7 +88,10 @@ public class SelectedImageEventHandler implements UserEventHandler {
 		 
 		 // build response for user
 		 ResponseBuilder responseBuilder = input.getResponseBuilder();
- 		 String speechText = "Here's your selected photo.";
+		 String speechText = null;
+		 if (eventSourceId.equals("ImageListItemSelected")) {
+			 speechText = "Here's your selected photo.";
+		 }
  		 if (AplUtil.supportsApl(input)) {
               try {
                   // Retrieve the JSON document and put into a string/object map
@@ -102,11 +105,16 @@ public class SelectedImageEventHandler implements UserEventHandler {
                           .withDocument(document)
                           .withDatasources(data)
                           .build();
-
-                  return input.getResponseBuilder()
-                          .withSpeech(speechText)
-                          .addDirective(renderDocumentDirective)
-                          .build();
+                  if (eventSourceId.equals("ImageListItemSelected")) {
+	                  return input.getResponseBuilder()
+	                          .withSpeech(speechText)
+	                          .addDirective(renderDocumentDirective)
+	                          .build();
+                  } else {
+	                  return input.getResponseBuilder()
+	                          .addDirective(renderDocumentDirective)
+	                          .build();
+                  }
 
               } catch (IOException e) {
                   throw new AskSdkException("Unable to read or deserialize the APL document", e);
@@ -129,9 +137,17 @@ public class SelectedImageEventHandler implements UserEventHandler {
     	ArrayList<String> listOfID = new ArrayList<String>(fixedLenghtList);
     	int currentImgPos = listOfID.indexOf(currentImgUUID);
     	if (btnPressed.equals("PrevButton")) {
-    		imageUUID = listOfID.get(currentImgPos - 1);
+    		if ( currentImgPos == 0) {
+    			imageUUID = listOfID.get(listOfID.size() -1); // go to end of the list 
+    		} else {
+    			imageUUID = listOfID.get(currentImgPos - 1); // go back one
+    		}
     	} else {
-    		imageUUID = listOfID.get(currentImgPos + 1);
+    		if (currentImgPos == (listOfID.size() -1)) {
+    			imageUUID = listOfID.get(0); // go to start of list
+    		} else {
+        		imageUUID = listOfID.get(currentImgPos + 1); // go forward one
+    		}
     	}
     	
     	return imageUUID;

@@ -79,6 +79,7 @@
                                     },
                                     {
                                         "type": "AlexaButton",
+                                        "touchForward": false,
                                         "buttonText": "< Prev",
                                         "buttonStyle": "outlined",
 										"primaryAction": {
@@ -90,6 +91,7 @@
                                     },
                                     {
                                         "type": "AlexaButton",
+                                        "touchForward": true,
                                         "buttonText": "Next >",
                                         "buttonStyle": "outlined",
 										"primaryAction": {
