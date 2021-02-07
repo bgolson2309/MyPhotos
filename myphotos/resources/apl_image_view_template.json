@@ -68,19 +68,6 @@
                                     {
                                         "type": "AlexaButton",
                                         "touchForward": true,
-                                        "buttonText": "Back",
-                                        "buttonStyle": "outlined",
-                                        "accessibilityLabel": "back",
-										"primaryAction": {
-											"type": "SendEvent",
-											"arguments": [
-											  "BackButton"
-											]
-										  }
-                                    },
-                                    {
-                                        "type": "AlexaButton",
-                                        "touchForward": true,
                                         "buttonText": "< Prev",
                                         "buttonStyle": "outlined",
 										"primaryAction": {

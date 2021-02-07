@@ -60,6 +60,7 @@ public class Constants {
     public static final String BEST_TEAM_INTENT = "BestTeamIntent";
     public static final String AMAZON_YES_INTENT = "AMAZON.YesIntent";
     public static final String AMAZON_NO_INTENT = "AMAZON.NoIntent";
+    public static final String AMAZON_NEXT_INTENT = "AMAZON.NextIntent";
     public static final String AMAZON_HELP_INTENT ="AMAZON.HelpIntent";
     public static final String AMAZON_STOP_INTENT ="AMAZON.StopIntent";
     public static final String AMAZON_CANCEL_INTENT ="AMAZON.CancelIntent";

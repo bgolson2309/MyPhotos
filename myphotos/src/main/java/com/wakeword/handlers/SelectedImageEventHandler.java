@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wakeword.dto.MediaItem;
 import com.wakeword.util.AplUtil;
 import com.wakeword.util.PhotoManager;
+import com.wakeword.util.StringUtils;
 
 public class SelectedImageEventHandler implements UserEventHandler {
 
@@ -62,7 +63,7 @@ public class SelectedImageEventHandler implements UserEventHandler {
 				 imageUUID = (String) argumentsObject.get(1);
 			 } else {
 			     if (sessionAttributes.containsKey("IMAGE_UUID_LIST")) {
-			    	 imageUUID = getNextImageUUID(eventSourceId, sessionAttributes.get("IMAGE_UUID_LIST").toString(), sessionAttributes.get("SESSION_SELECTED_IMAGE_UUID").toString()); 
+			    	 imageUUID = StringUtils.getNextImageUUID(eventSourceId, sessionAttributes.get("IMAGE_UUID_LIST").toString(), sessionAttributes.get("SESSION_SELECTED_IMAGE_UUID").toString()); 
 			     }
 			 }
 		 } catch (Exception e) {
@@ -129,27 +130,5 @@ public class SelectedImageEventHandler implements UserEventHandler {
              .build();
     	  
     }
-    
-    private String getNextImageUUID(String btnPressed, String imageList, String currentImgUUID) {
-    	String imageUUID = null;
-    	String[] imageIdArray = imageList.split(",");
-    	List<String> fixedLenghtList = Arrays.asList(imageIdArray); 
-    	ArrayList<String> listOfID = new ArrayList<String>(fixedLenghtList);
-    	int currentImgPos = listOfID.indexOf(currentImgUUID);
-    	if (btnPressed.equals("PrevButton")) {
-    		if ( currentImgPos == 0) {
-    			imageUUID = listOfID.get(listOfID.size() -1); // go to end of the list 
-    		} else {
-    			imageUUID = listOfID.get(currentImgPos - 1); // go back one
-    		}
-    	} else {
-    		if (currentImgPos == (listOfID.size() -1)) {
-    			imageUUID = listOfID.get(0); // go to start of list
-    		} else {
-        		imageUUID = listOfID.get(currentImgPos + 1); // go forward one
-    		}
-    	}
-    	
-    	return imageUUID;
-    }
+
 }
