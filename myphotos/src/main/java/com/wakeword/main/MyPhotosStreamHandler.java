@@ -21,6 +21,7 @@ public class MyPhotosStreamHandler extends SkillStreamHandler {
                         new NoIntentHandler(),
                         new YesIntentHandler(),
                         new NextIntentHandler(),
+                        new PreviousIntentHandler(),
                         new FallbackIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
