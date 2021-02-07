@@ -12,6 +12,7 @@ public class MediaMetadata {
 	private String width;
 	private String height;
 	private Photo photo;
+	private Video video;
 	
 	public String getCreationTime() {
 		return creationTime;
@@ -37,6 +38,12 @@ public class MediaMetadata {
 	}
 	public void setPhoto(Photo photo) {
 		this.photo = photo;
+	}
+	public Video getVideo() {
+		return video;
+	}
+	public void setVideo(Video video) {
+		this.video = video;
 	}
 	public String convertToReadableFormat(String dateStr) {
 		String readableDate = null;

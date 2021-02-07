@@ -42,10 +42,10 @@ public class GoBackEventHandler implements UserEventHandler {
      * 2 = Album ID for making Google API call for Media Items
      */
     public Optional<Response> handle(HandlerInput input, UserEvent userEvent) {
-    	 
+   	 	AttributesManager attributesManager = input.getAttributesManager();
+   	 	Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
+   	 	String viewMode = sessionAttributes.get("SESSION_VIEW_MODE").toString();
         ResponseBuilder responseBuilder = input.getResponseBuilder();
-        AttributesManager attributesManager = input.getAttributesManager();
-        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
         
         String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	String albumsString, speechText, albumsJson = null;
