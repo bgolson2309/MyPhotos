@@ -20,13 +20,6 @@ public class ServiceExceptionHandler implements ExceptionHandler {
         System.out.print("Error message : " + throwable.getMessage());
         System.out.print("Error status code = " + e.getStatusCode());
 
-        if (e.getStatusCode() == 403) {
-          return handlerInput.getResponseBuilder()
-          .withSpeech(Constants.NOTIFY_MISSING_PERMISSIONS)
-          .withAskForPermissionsConsentCard(Arrays.asList(Constants.NAME_PERMISSION, Constants.EMAIL_PERMISSION))
-          .build();
-          // hard lesson: match consent card perms, with perms for the skill exactly
-        }
         return handlerInput.getResponseBuilder()
                 .withSpeech(Constants.API_FAILURE)
                 .withReprompt(Constants.API_FAILURE)

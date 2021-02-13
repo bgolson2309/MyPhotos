@@ -30,31 +30,18 @@ public class Constants {
 	public static final String MY_PHOTOS = "My Photos";
 	public static final String FIRST_VISIT = "Welcome to My Photos! Do you want to view your most recent albums, or photos?";
 	public static final String NO_RESPONSE = "Ok.  Perhaps another time.";
-	
-	//S3 bucket for persistence of reading list by Alexa account ID
-	public static final String BUCKET = "wakeword.skill.myphotos"; 
-
-    //profile permissions
-    public static final String NAME_PERMISSION = "alexa::profile:name:read";
-    public static final String EMAIL_PERMISSION = "alexa::profile:email:read";
-    public static final String MOBILE_NUMBER_PERMISSION = "alexa::profile:mobile_number:read";
-    
+	   
     // custom slots
     public static final String CATEGORY = "category";
     public static final String LIST_POSITION_SLOT = "ListPosition";
     public static final String DATE_SLOT = "date";
     
     //custom intents
-    public static final String EMAIL_JOURNAL_INTENT = "EmailJournalIntent";
+    public static final String FULL_SCREEN_INTENT = "FullScreenIntent";
     public static final String LIST_ALBUMS_INTENT = "ListAlbumsIntent";
     public static final String SELECT_ALBUM = "SelectAlbumIntent";
     public static final String LIST_IMAGES_INTENT = "ListImagesIntent";
     public static final String FILTER_IMAGES_INTENT = "FilterImagesIntent";
-    public static final String SET_FAVORITE_TEAM_INTENT = "SetFavoriteTeamIntent";
-    public static final String LOG_RUN_INTENT = "LogRunIntent";
-    public static final String DISPLAY_RUNS_INTENT = "DisplayRunsIntent";
-    public static final String DISPLAY_STATISTICS_INTENT = "ShowStatisticsIntent";
-    public static final String BEST_TEAM_INTENT = "BestTeamIntent";
     public static final String AMAZON_YES_INTENT = "AMAZON.YesIntent";
     public static final String AMAZON_NO_INTENT = "AMAZON.NoIntent";
     public static final String AMAZON_NEXT_INTENT = "AMAZON.NextIntent";
