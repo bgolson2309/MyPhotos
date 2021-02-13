@@ -82,12 +82,12 @@ public class AplUtil {
 			"                }" + 
 			"            ]" + 
 			"        }," + 
-			"        \"title\": \"Photo Albums:\"," + 
+			"        \"title\": \"Albums:\"," + 
 			"        \"listItems\": [";
 
 	public static String album_template = "            {" + 
 			"                \"primaryText\": \"{album-title}\"," + 
-			"                \"secondaryText\": \"Photos: {image-count}\"," + 
+			"                \"secondaryText\": \"Images: {image-count}\"," + 
 			"                \"imageAlignment\": \"{right-left}\"," + 
 			"                \"imageSource\": \"{album-cover-url}\"," + 
 			"                \"primaryAction\": {" + 
@@ -104,7 +104,7 @@ public class AplUtil {
 	public static String comma = ","; 
 	public static String album_bottom = "        ]," + 
 			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png\"," + 
-			"        \"hintText\": \"Try, \\\"Alexa, ask My Photos to open first album.\\\"\"" + 
+			"        \"hintText\": \"Try, \\\"Alexa, select first album.\\\"\"" + 
 			"    }" + 
 			"}";
 	
@@ -132,7 +132,7 @@ public class AplUtil {
 			"                }\r\n" + 
 			"            ]\r\n" + 
 			"        },\r\n" + 
-			"        \"title\": \"Photo Album: {album-title}\",\r\n" + 
+			"        \"title\": \"Album: {album-title}\",\r\n" + 
 			"        \"listItems\": [";
 			
 	public static String photos_template = "            {\r\n" + 
@@ -150,7 +150,7 @@ public class AplUtil {
 	
 	public static String photos_bottom = "        ],\r\n" + 
 			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png\",\r\n" + 
-			"        \"hintText\": \"Try, \\\"Alexa, ask My Photos to begin slideshow.\\\"\"\r\n" + 
+			"        \"hintText\": \"Try, \\\"Alexa, start slideshow.\\\"\"\r\n" + 
 			"    }\r\n" + 
 			"}";
 			

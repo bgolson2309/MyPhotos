@@ -54,7 +54,7 @@
                                         "grow": "${@viewportProfile == @hubRoundSmall ? 0 : 1}",
                                         "imageSource": "${payload.imageTemplateData.properties.image.sources[0].url}",
                                         "imageRoundedCorner": true,
-                                        "imageScale": "best-fill",
+                                        "imageScale": "best-fit",
                                         "imageAlignment": "center",
                                         "imageWidth": "${@viewportProfile == @hubRoundSmall ? '70%' : '100%'}",
                                         "imageAspectRatio": "${@viewportProfile == @hubRoundSmall ? 'square' : 'standard_landscape'}"

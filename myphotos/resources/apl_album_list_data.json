@@ -21,7 +21,7 @@
                 }
             ]
         },
-        "title": "Photo Albums:",
+        "title": "Albums:",
         "listItems": [
             {
                 "primaryText": "{album-title}",
@@ -39,7 +39,7 @@
             },
             {
                 "primaryText": "{album-title}",
-                "secondaryText": "Photos: {image-count}",
+                "secondaryText": "Images: {image-count}",
                 "imageAlignment": "left",
                 "imageSource": "{album-cover-url}",
                 "primaryAction": {
@@ -53,6 +53,6 @@
             }
         ],
         "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/icon_108_A2Z.png",
-        "hintText": "Try, \"Alexa, ask My Photos to open first album.\""
+        "hintText": "Try, \"Alexa, select first album.\""
     }
 }

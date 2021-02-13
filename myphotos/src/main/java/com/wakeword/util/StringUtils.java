@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.wakeword.dto.Album;
 import com.wakeword.dto.MediaItem;
 
 public class StringUtils {
@@ -31,6 +32,17 @@ public class StringUtils {
 		return imageList;
 	}
 	
+	public static String makeAlbumList(Album[] album)
+	{
+		String albumList = "";
+		for (int i = 0; i < album.length; i++)
+		{
+			albumList = albumList + album[i].getId() + ",";
+		}
+		
+		return albumList;
+	}
+	
 	public static String getNextImageUUID(String btnPressed, String imageList, String currentImgUUID) {
     	String imageUUID = null;
     	String[] imageIdArray = imageList.split(",");
@@ -52,5 +64,14 @@ public class StringUtils {
     	}
     	
     	return imageUUID;
+    }
+	
+	public static String getSelectedAlbumUUID(int numRequested, String albumList) {
+
+    	String[] albumIdArray = albumList.split(",");
+    	List<String> fixedLenghtList = Arrays.asList(albumIdArray); 
+    	ArrayList<String> listOfID = new ArrayList<String>(fixedLenghtList);
+    	return listOfID.get(numRequested - 1); 
+
     }
 }

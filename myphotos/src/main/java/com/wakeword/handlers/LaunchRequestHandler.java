@@ -63,6 +63,7 @@ public class LaunchRequestHandler implements RequestHandler  {
     			albumsString = PhotoManager.listAlbums(googleToken);
     			try {
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
+       			 	sessionAttributes.put("ALBUM_UUID_LIST", StringUtils.makeAlbumList(albums));
                 	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
        			    sessionAttributes.put("IMAGE_UUID_LIST", "");
             		albumsJson = AplUtil.buildAlbumData(albums);

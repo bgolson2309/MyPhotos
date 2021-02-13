@@ -41,16 +41,13 @@ public class Constants {
     
     // custom slots
     public static final String CATEGORY = "category";
-    public static final String TEAM_SLOT = "team";
-    public static final String KILOMETER_SLOT = "kilometer";
-    public static final String DURATION_SLOT = "duration";
+    public static final String LIST_POSITION_SLOT = "ListPosition";
     public static final String DATE_SLOT = "date";
-    public static final String FELT_SLOT = "felt";
-    public static final String DENIED_SLOT_STATUS = "DENIED";
     
     //custom intents
     public static final String EMAIL_JOURNAL_INTENT = "EmailJournalIntent";
     public static final String LIST_ALBUMS_INTENT = "ListAlbumsIntent";
+    public static final String SELECT_ALBUM = "SelectAlbumIntent";
     public static final String LIST_IMAGES_INTENT = "ListImagesIntent";
     public static final String FILTER_IMAGES_INTENT = "FilterImagesIntent";
     public static final String SET_FAVORITE_TEAM_INTENT = "SetFavoriteTeamIntent";
