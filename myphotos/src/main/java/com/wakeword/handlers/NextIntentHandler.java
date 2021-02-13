@@ -51,10 +51,11 @@ public class NextIntentHandler implements RequestHandler {
 
 	 //build json data of MediaItems for the selected album
 	 String photoJson = null;
+	 MediaItem media = null;
 	 ObjectMapper objectMapper = new ObjectMapper();      		
 
 	 try {
-		 MediaItem media = objectMapper.readValue(selectedImageAPIResponse, MediaItem.class); 
+		 media = objectMapper.readValue(selectedImageAPIResponse, MediaItem.class); 
 		 photoJson = AplUtil.buildSelectedMediaData(media, currentPixelWidth, currentPixelHeight);
      	 sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_ITEM_VIEW");
      	 sessionAttributes.put("SESSION_SELECTED_IMAGE_UUID", imageUUID);
@@ -72,7 +73,12 @@ public class NextIntentHandler implements RequestHandler {
               // Retrieve the JSON document and put into a string/object map
               ObjectMapper mapper = new ObjectMapper();
               TypeReference<HashMap<String, Object>> documentMapType = new TypeReference<HashMap<String, Object>>() {};
-              Map<String, Object> document = mapper.readValue(new File("apl_image_view_template.json"), documentMapType);
+              Map<String, Object> document = null;
+              if (Integer.parseInt(media.getMediaMetadata().getWidth()) > Integer.parseInt(media.getMediaMetadata().getHeight())) {
+            	  document = mapper.readValue(new File("apl_image_view_wide_template.json"), documentMapType);
+              } else {
+            	  document = mapper.readValue(new File("apl_image_view_template.json"), documentMapType);
+              }
               Map<String, Object> data = mapper.readValue(photoJson, documentMapType);
 
               RenderDocumentDirective renderDocumentDirective = RenderDocumentDirective.builder()
