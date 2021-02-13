@@ -45,12 +45,15 @@ public class SelectedIntentHandler implements RequestHandler {
 		 RequestHelper requestHelper = RequestHelper.forHandlerInput(input);
 		 Optional<String> position = requestHelper.getSlotValue(Constants.LIST_POSITION_SLOT);
 	 
-		 //String albumTitle = (String) argumentsObject.get(1);
+		 String albumTitle = null;
 		 String albumId = null;
 		 try {
 		     if (sessionAttributes.containsKey("ALBUM_UUID_LIST")) {
-		   	  albumId = StringUtils.getSelectedAlbumUUID(Integer.parseInt(position.get()), sessionAttributes.get("ALBUM_UUID_LIST").toString()); 
+		   	  	albumId = StringUtils.getSelectedAlbumUUID(Integer.parseInt(position.get()), sessionAttributes.get("ALBUM_UUID_LIST").toString()); 
 		     }
+		     if (sessionAttributes.containsKey("ALBUM_TITLE_LIST")) {
+		    	 albumTitle = StringUtils.getSelectedAlbumUUID(Integer.parseInt(position.get()), sessionAttributes.get("ALBUM_TITLE_LIST").toString()); 
+			 }
 		 } catch (Exception e) {
 			 e.printStackTrace();
 		 }
@@ -63,7 +66,7 @@ public class SelectedIntentHandler implements RequestHandler {
 		 try {
 			 MediaItem[] media = objectMapper.readValue(selectedAlbumAPIResponse.substring(17), MediaItem[].class); 
 			 sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
-			 photosJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "{some album title}");
+			 photosJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, albumTitle);
 		 } catch (Exception e) {
 	    	System.out.println(e.getMessage());
 		 }

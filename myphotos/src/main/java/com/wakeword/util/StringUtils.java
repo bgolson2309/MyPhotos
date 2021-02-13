@@ -43,6 +43,17 @@ public class StringUtils {
 		return albumList;
 	}
 	
+	public static String makeAlbumTitleList(Album[] album)
+	{
+		String albumList = "";
+		for (int i = 0; i < album.length; i++)
+		{
+			albumList = albumList + album[i].getTitle() + ",";
+		}
+		
+		return albumList;
+	}
+	
 	public static String getNextImageUUID(String btnPressed, String imageList, String currentImgUUID) {
     	String imageUUID = null;
     	String[] imageIdArray = imageList.split(",");
@@ -72,6 +83,5 @@ public class StringUtils {
     	List<String> fixedLenghtList = Arrays.asList(albumIdArray); 
     	ArrayList<String> listOfID = new ArrayList<String>(fixedLenghtList);
     	return listOfID.get(numRequested - 1); 
-
     }
 }
