@@ -34,8 +34,8 @@ public class SelectedIntentHandler implements RequestHandler {
     
     public Optional<Response> handle(HandlerInput input) {
 
-        AttributesManager attributesManager = input.getAttributesManager();
-        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
+         AttributesManager attributesManager = input.getAttributesManager();
+         Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
 
 		 ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
 		 int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();

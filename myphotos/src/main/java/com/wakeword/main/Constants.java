@@ -34,12 +34,14 @@ public class Constants {
     // custom slots
     public static final String CATEGORY = "category";
     public static final String LIST_POSITION_SLOT = "ListPosition";
+    public static final String IMAGE_POSITION_SLOT = "ImagePosition";
     public static final String DATE_SLOT = "date";
     
     //custom intents
     public static final String FULL_SCREEN_INTENT = "FullScreenIntent";
     public static final String LIST_ALBUMS_INTENT = "ListAlbumsIntent";
     public static final String SELECT_ALBUM = "SelectAlbumIntent";
+    public static final String SELECT_IMAGE = "SelectImageIntent";
     public static final String LIST_IMAGES_INTENT = "ListImagesIntent";
     public static final String FILTER_IMAGES_INTENT = "FilterImagesIntent";
     public static final String AMAZON_YES_INTENT = "AMAZON.YesIntent";
