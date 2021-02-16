@@ -153,7 +153,21 @@ public class AplUtil {
 			"        \"hintText\": \"Try, \\\"Alexa, start slideshow.\\\"\"\r\n" + 
 			"    }\r\n" + 
 			"}";
+	
+	public static String slideshow_data_top = "{" + 
+			"	\"data\": {" + 
+			"		\"properties\": {" + 
+			"			\"values\": [";
+	
+	public static String slideshow_data_middle = "				{" + 
+			"					\"image\": \"{baseURL}=w{width-px}-h{height-px}\"" + 
+			"				}";			
 			
+	public static String slideshow_data_bottom = "			]" + 
+			"		}" + 
+			"   }  " +
+			"}";
+	
 	public static String buildAlbumData(Album[] albums) {
 		String jsonAlbumData = album_list_top + album_template;
 		
@@ -213,7 +227,6 @@ public class AplUtil {
 		jsonMediasData=jsonMediasData.replace("{width-px}", String.valueOf(currentPixelWidth));
 		jsonMediasData=jsonMediasData.replace("{height-px}", String.valueOf(currentPixelHeight));
 		jsonMediasData=jsonMediasData.replace("{height-px}", String.valueOf(currentPixelHeight));
-		 System.out.println("MEDIA JSON = " + jsonMediasData);	
 		
 		return jsonMediasData;
 	}
@@ -223,4 +236,23 @@ public class AplUtil {
         return supportedInterfaces.getAlexaPresentationAPL() != null;
     }
     
+	public static String buildSlideshowData(MediaItem[] media, int currentPixelWidth, int currentPixelHeight) {
+		
+		String jsonData = slideshow_data_top;
+		
+		for (int i = 0; i < media.length; i++) {
+			jsonData= jsonData + slideshow_data_middle;
+			jsonData=jsonData.replace("{baseURL}", media[i].getBaseUrl());
+			jsonData=jsonData.replace("{width-px}", String.valueOf(currentPixelWidth));
+			jsonData=jsonData.replace("{height-px}", String.valueOf(currentPixelHeight));
+			jsonData = jsonData + comma;
+		}
+		// trim off trailing comma
+		if (jsonData.endsWith(",")) {
+			jsonData = jsonData.substring(0, (jsonData.length() - 1));
+		}
+		
+		jsonData = jsonData + slideshow_data_bottom;
+		return jsonData;
+	}
 }

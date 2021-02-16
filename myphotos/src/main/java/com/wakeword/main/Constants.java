@@ -45,6 +45,7 @@ public class Constants {
     public static final String LIST_IMAGES_INTENT = "ListImagesIntent";
     public static final String FILTER_IMAGES_INTENT = "FilterImagesIntent";
     public static final String IMAGES_FOR_DATE_INTENT = "ImagesForDateIntent"; 
+    public static final String SLIDE_SHOW_INTENT = "SlideShowIntent";     
     public static final String AMAZON_YES_INTENT = "AMAZON.YesIntent";
     public static final String AMAZON_NO_INTENT = "AMAZON.NoIntent";
     public static final String AMAZON_NEXT_INTENT = "AMAZON.NextIntent";

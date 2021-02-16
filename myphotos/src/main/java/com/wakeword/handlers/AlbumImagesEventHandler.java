@@ -56,6 +56,8 @@ public class AlbumImagesEventHandler implements UserEventHandler {
 		 ArrayList argumentsObject =  (ArrayList) userEvent.getArguments();
 		 String albumTitle = (String) argumentsObject.get(1);
 	     String albumId = (String) argumentsObject.get(2);
+		 sessionAttributes.put("SELECTED_ALBUM_UUID", albumId );
+
 		 String selectedAlbumAPIResponse = PhotoManager.listAlbumMedia(googleToken, albumId);
  
 		 //build json data of MediaItems for the selected album
@@ -97,12 +99,12 @@ public class AlbumImagesEventHandler implements UserEventHandler {
                   throw new AskSdkException("Unable to read or deserialize the APL document", e);
               }
          } else {
-             speechText = "My Photos is designed for viewing images on a device with a screen, such as an Echo Show or Fire TV.";
+             speechText = "My Images is designed for viewing images on a device with a screen, such as an Echo Show or Fire TV.";
          }
          // add the speech to a simple card response and return it for the case of a device w/out a screen.
          return responseBuilder
              .withSpeech(speechText)
-             .withSimpleCard("My Photos", speechText)
+             .withSimpleCard("My Images", speechText)
              .build();
     	  
     }

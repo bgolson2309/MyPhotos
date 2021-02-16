@@ -50,6 +50,7 @@ public class SelectedIntentHandler implements RequestHandler {
 		 try {
 		     if (sessionAttributes.containsKey("ALBUM_UUID_LIST")) {
 		   	  	albumId = StringUtils.getSelectedAlbumUUID(Integer.parseInt(position.get()), sessionAttributes.get("ALBUM_UUID_LIST").toString()); 
+				sessionAttributes.put("SELECTED_ALBUM_UUID", albumId );
 		     }
 		     if (sessionAttributes.containsKey("ALBUM_TITLE_LIST")) {
 		    	 albumTitle = StringUtils.getSelectedAlbumUUID(Integer.parseInt(position.get()), sessionAttributes.get("ALBUM_TITLE_LIST").toString()); 
