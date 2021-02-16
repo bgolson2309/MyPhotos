@@ -69,7 +69,7 @@ public class AlbumImagesEventHandler implements UserEventHandler {
 			 sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
 			 photosJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, albumTitle);
 		 } catch (Exception e) {
-	    	System.out.println(e.getMessage());
+	    	e.printStackTrace();
 		 }
 		 
 		 // build response for user

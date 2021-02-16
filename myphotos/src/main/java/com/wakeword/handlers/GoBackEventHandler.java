@@ -64,7 +64,7 @@ public class GoBackEventHandler implements UserEventHandler {
             		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
             		albumsJson = AplUtil.buildAlbumData(albums);
     	    	} catch (Exception e) {
-    	    		System.out.println(e.getMessage());
+    	    		e.printStackTrace();
     	    	}
     	    	speechText = "Here's your list of albums again.";
     	}

@@ -56,7 +56,7 @@ public class MediaMetadata {
 		    Date convertedDate = sourceFormat.parse(dateStr);
 		    readableDate = destFormat.format(convertedDate);
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return readableDate;
 	}

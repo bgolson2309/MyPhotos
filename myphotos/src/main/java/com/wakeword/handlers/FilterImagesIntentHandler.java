@@ -64,7 +64,7 @@ public class FilterImagesIntentHandler implements IntentRequestHandler  {
 
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Photos filtered by " + spokenCategory.get());
     	    	} catch (Exception e) {
-    	    		System.out.println(e.getMessage());
+    	    		e.printStackTrace();
     	    	}
     	    	speechText = "Here's your photos filtered by category " + spokenCategory.get();
     	    	

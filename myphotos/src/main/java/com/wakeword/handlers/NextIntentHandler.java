@@ -47,7 +47,6 @@ public class NextIntentHandler implements RequestHandler {
      }
 
 	 String selectedImageAPIResponse = PhotoManager.getMediaItem(googleToken, imageUUID);
-	 System.out.println("SelectedImageAPIResponse = " + selectedImageAPIResponse);
 
 	 //build json data of MediaItems for the selected album
 	 String photoJson = null;
@@ -61,7 +60,7 @@ public class NextIntentHandler implements RequestHandler {
      	 sessionAttributes.put("SESSION_SELECTED_IMAGE_UUID", imageUUID);
     	 attributesManager.setSessionAttributes(sessionAttributes);
 	 } catch (Exception e) {
-    	System.out.println(e.getMessage());
+		 e.printStackTrace();
 	 }
 	 
 	 // build response for user

@@ -57,9 +57,8 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
                 	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
        			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
                 	attributesManager.setSessionAttributes(sessionAttributes);
-       			 	System.out.println("PHOTOS JSON = " + imagesJson);	
     	    	} catch (Exception e) {
-    	    		System.out.println(e.getMessage());
+    	    		e.printStackTrace();
     	    	}
     	    	speechText = "Here's your most recent images.";
     	}

@@ -54,7 +54,7 @@ public class ListAlbumsIntentHandler implements IntentRequestHandler  {
                 	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
        			    sessionAttributes.put("IMAGE_UUID_LIST", "");
     	    	} catch (Exception e) {
-    	    		System.out.println(e.getMessage());
+    	    		e.printStackTrace();
     	    	}
     	    	speechText = "Here's your list of albums.";
     	}
