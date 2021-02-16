@@ -16,11 +16,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wakeword.dto.MediaItem;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
+import com.wakeword.util.DurationUtils;
 import com.wakeword.util.PhotoManager;
 import com.wakeword.util.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,6 +54,26 @@ public class SlideShowIntentHandler implements RequestHandler {
      if (sessionAttributes.containsKey("SELECTED_ALBUM_UUID")) {
     	 albumId = sessionAttributes.get("SELECTED_ALBUM_UUID").toString(); 
     	 apiResponse = PhotoManager.listAlbumMedia(googleToken, albumId);
+     } else {
+    	 if (sessionAttributes.containsKey("SESSION_VIEW_MODE")) {
+    		 String viewMode = sessionAttributes.get("SESSION_VIEW_MODE").toString();
+    		 if (viewMode.equals("IMAGE_LIST_VIEW")) {
+    			 if (sessionAttributes.containsKey("IMAGE_SEARCH_BY_TYPE") && sessionAttributes.containsKey("IMAGE_SEARCH_BY_VALUE") && sessionAttributes.get("IMAGE_SEARCH_BY_TYPE").toString().equals("FILTER") ) {
+    				 // get media by filter category
+    				 String category = sessionAttributes.get("IMAGE_SEARCH_BY_VALUE").toString();
+    				 String[] categories = {category};
+    				 apiResponse = PhotoManager.searchMediaByCategories(googleToken, categories);
+    			 } else if (sessionAttributes.containsKey("IMAGE_SEARCH_BY_TYPE") && sessionAttributes.containsKey("IMAGE_SEARCH_BY_VALUE") && sessionAttributes.get("IMAGE_SEARCH_BY_TYPE").toString().equals("DURATION") ) {
+    				 // get media by duration
+    				 String duration = sessionAttributes.get("IMAGE_SEARCH_BY_VALUE").toString();
+    				 Duration d = Duration.parse(DurationUtils.revisedDays(duration));
+    				 apiResponse = PhotoManager.searchMediaByDuration(googleToken, d);
+    			 } else {
+    				 // get media by nothing
+    				 apiResponse = PhotoManager.listMedia(googleToken);
+    			 }
+    		 }
+    	 }
      }
 
 	 try {

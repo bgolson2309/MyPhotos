@@ -56,6 +56,7 @@ public class ListImagesIntentHandler implements IntentRequestHandler  {
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
                 	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
        			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
+                	sessionAttributes.put("IMAGE_SEARCH_BY_TYPE", "NONE");
                 	attributesManager.setSessionAttributes(sessionAttributes);
     	    	} catch (Exception e) {
     	    		e.printStackTrace();

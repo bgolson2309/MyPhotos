@@ -61,7 +61,9 @@ public class FilterImagesIntentHandler implements IntentRequestHandler  {
             		imagesResponse = PhotoManager.searchMediaByCategories(googleToken, categories);
        			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
        			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
-
+                	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
+                	sessionAttributes.put("IMAGE_SEARCH_BY_TYPE", "FILTER");
+                	sessionAttributes.put("IMAGE_SEARCH_BY_VALUE", categories[0]);
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Photos filtered by " + spokenCategory.get());
     	    	} catch (Exception e) {
     	    		e.printStackTrace();

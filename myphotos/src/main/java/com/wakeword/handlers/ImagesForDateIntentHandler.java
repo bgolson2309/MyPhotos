@@ -63,7 +63,9 @@ public class ImagesForDateIntentHandler implements IntentRequestHandler  {
             		imagesResponse = PhotoManager.searchMediaByDuration(googleToken, d);
        			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
        			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
-
+                	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
+                	sessionAttributes.put("IMAGE_SEARCH_BY_TYPE", "DURATION");
+                	sessionAttributes.put("IMAGE_SEARCH_BY_VALUE", d);
        			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Images filtered by date");
     	    	} catch (Exception e) {
     	    		e.printStackTrace();
