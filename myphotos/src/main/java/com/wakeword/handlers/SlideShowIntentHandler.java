@@ -63,7 +63,7 @@ public class SlideShowIntentHandler implements RequestHandler {
 
 	 // build response for user
 	 ResponseBuilder responseBuilder = input.getResponseBuilder();
-	 String speechText = "Sit back and enjoy your slideshow.";
+	 String speechText = "Sit back, and enjoy your slideshow.";
 
 	 if (AplUtil.supportsApl(input)) {
           try {
@@ -81,7 +81,7 @@ public class SlideShowIntentHandler implements RequestHandler {
                       .build();
 
               List<com.amazon.ask.model.interfaces.alexa.presentation.apl.Command> commands=new ArrayList<>();
-              commands.add(AutoPageCommand.builder().withComponentId("myPager").withDelay(3000).withDuration(4000).build());
+              commands.add(AutoPageCommand.builder().withComponentId("myPager").withDelay(3000).withDuration(5000).build());
               
               ExecuteCommandsDirective executeCommandsDirective = ExecuteCommandsDirective.builder()
                       .withToken("SlideShowToken")
