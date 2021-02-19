@@ -52,7 +52,7 @@
 				  }
             }
         ],
-        "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/icon_108_A2Z.png",
+        "logoUrl": "https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png",
         "hintText": "Try, \"Alexa, select first album.\""
     }
 }

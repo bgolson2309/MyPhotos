@@ -149,7 +149,7 @@ public class AplUtil {
 			"            }";
 	
 	public static String photos_bottom = "        ],\r\n" + 
-			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png\",\r\n" + 
+			"        \"logoUrl\": \"https://s3-us-west-2.amazonaws.com/wakeword.skill.myphotos/logo-min6.png\"," + 
 			"        \"hintText\": \"Try, \\\"Alexa, start slideshow.\\\"\"\r\n" + 
 			"    }\r\n" + 
 			"}";
