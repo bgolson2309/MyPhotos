@@ -30,6 +30,13 @@ public class Constants {
 	public static final String MY_PHOTOS = "My Images";
 	public static final String FIRST_VISIT = "Welcome to My Images! Do you want to view your most recent albums, or photos?";
 	public static final String NO_RESPONSE = "Ok.  Perhaps another time.";
+	public static final String HUH = "I didn't catch that. What can I help you with?";
+	public static final String NO_ISP = "There are no in skill products to sell or refund to you right now.";
+	public static final String WHAT_CAN_I_BUY = "Products available for purchase at this time is Premium Access.   Premium Access allows you full navigation, filtering images on categories, searching by time, and full screen image slideshow functionality. If you are ready to buy, say, 'Buy' premium access. So what can I help you with?";
+	public static final String YOU_BOUGHT_PREMIUM = "You purchased Premium Access, and now you can enjoy rich image filtering, searching, viewing and navigation.";
+	public static final String YOU_HAVENT_BOUGHT_PREMIUM = "You haven't bought Premium Access for My Images.  Say, what can I buy, to learn more.";
+	public static final String CANCEL_ACCEPTED = "Even without Premium Access, you can continue to browse albums and images.";
+
 	   
     // custom slots
     public static final String CATEGORY = "category";
