@@ -84,4 +84,17 @@ public class StringUtils {
     	ArrayList<String> listOfID = new ArrayList<String>(fixedLenghtList);
     	return listOfID.get(numRequested - 1); 
     }
+	
+	
+/*      stashing a code sample
+        	try {
+            	if (persistentAttributes.containsKey("PremiumAccess")) {
+            		System.out.println("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
+            	}
+        	} catch (Exception e) {
+        		System.out.println(e.getMessage());
+        	}
+        	boolean hasPremiumAccess = false;
+        	persistentAttributes.put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
+*/
 }

@@ -40,17 +40,7 @@ public class LaunchRequestHandler implements RequestHandler  {
     	
     	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
     	String albumsString, speechText, albumsJson = null;
-/*
- *     	try {
-        	if (persistentAttributes.containsKey("PremiumAccess")) {
-        		System.out.println("YES - WE HAVE LONG TERM ATTTRIBUTE PREMIUM ACCESS");
-        	}
-    	} catch (Exception e) {
-    		System.out.println(e.getMessage());
-    	}
-    	boolean hasPremiumAccess = false;
-    	persistentAttributes.put("PremiumAccess", Boolean.valueOf(hasPremiumAccess));
- */
+
     	if (googleToken == null || (!PhotoManager.validateToken(googleToken)))
     	{
             speechText = "Please use the Alexa application to link your Google account with My Photos.";
@@ -115,5 +105,5 @@ public class LaunchRequestHandler implements RequestHandler  {
             .withSimpleCard("My Photos", speechText)
             .build();
 	}
-
+    
 }
