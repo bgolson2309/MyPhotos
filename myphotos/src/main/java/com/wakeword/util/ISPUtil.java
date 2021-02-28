@@ -34,7 +34,7 @@ public class ISPUtil {
 
     public static String getBuyResponseText(String referenceName, String productName) {
     	if (referenceName.equalsIgnoreCase("Premium_Access")) {
-            return String.format("Now that you have %s, you can ask for running statistics, and customize the name of your favorite running team!", productName);
+            return String.format("Now that you have %s, you can filter images on dozens of categories, search by time, or watch a slideshow of your images.", productName);
         } else {
         	return "Sorry, that's not a valid product";
         }
@@ -150,10 +150,10 @@ public class ISPUtil {
         if(premiumSubscriptionProduct.isPresent()) {
             if(isEntitled(premiumSubscriptionProduct.get())) {
                 //Customer has bought Premium Access. 
-                speechText = "Congratulations on purchasing Premium Access!  Now you can ask me for your running statistics, or ask me to customize your favorite running team name to personalize my response.";
+                speechText = "Congratulations on purchasing Premium Access!  Now you have full navigation and can filter images on dozens of categories, search by time, or watch a slideshow of your images.";
             } else {
                 //Customer has NOT bought Premium Access
-            	speechText = "Purchasing Premium Access is a great way to get your running statistics, or customize your favorite running team name to personalize my response.  Just say, purchase premium access.";
+            	speechText = "Purchasing Premium Access is a great way to search, filter, and view your images.  Just say, purchase premium access.";
             }
         } else {
             speechText = String.format("Sorry, no in-skill products found.");
