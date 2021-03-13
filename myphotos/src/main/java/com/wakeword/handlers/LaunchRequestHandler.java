@@ -4,13 +4,17 @@ import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.exception.AskSdkException;
+import com.amazon.ask.model.Intent;
+import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.canfulfill.CanFulfillIntent;
 import com.amazon.ask.model.interfaces.alexa.presentation.apl.RenderDocumentDirective;
 import com.amazon.ask.model.interfaces.viewport.ViewportState;
 import com.amazon.ask.response.ResponseBuilder;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
+import com.wakeword.util.ISPUtil;
 import com.wakeword.util.PhotoManager;
 import com.wakeword.util.StringUtils;
 
@@ -53,7 +57,8 @@ public class LaunchRequestHandler implements RequestHandler  {
         } else {
         		ObjectMapper objectMapper = new ObjectMapper();      		
     			albumsString = PhotoManager.listAlbums(googleToken);
-    			if (albumsString.length() > 13) {
+    			System.out.println("ALBUM STRING LEN = " + albumsString.length());
+    			if (albumsString.length() > 100) {
     				
 	    			try {
 	            		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
@@ -66,20 +71,7 @@ public class LaunchRequestHandler implements RequestHandler  {
 	    	    		System.out.println(e.getMessage());
 	    	    	}
     			} else {
-	    			try {
-	    				ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
-	    				int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
-	    				int currentPixelHeight = viewportState.getCurrentPixelHeight().intValueExact();
-	            		String imagesResponse = PhotoManager.listMedia(googleToken);
-	       			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
-	       			 	String imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
-	                	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
-	       			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
-	                	sessionAttributes.put("IMAGE_SEARCH_BY_TYPE", "NONE");
-	                	attributesManager.setSessionAttributes(sessionAttributes);
-	    	    	} catch (Exception e) {
-	    	    		e.printStackTrace();
-	    	    	}
+    				return handleNoAlbums(input);
     			}
     				
     	    	speechText = "Welcome to My Images.";
@@ -120,6 +112,73 @@ public class LaunchRequestHandler implements RequestHandler  {
             speechText = "My Photos is designed for viewing images on a device with a screen, such as an Echo Show or Fire TV.";
         }
 
+        // add the speech to a simple card response and return it for the case of a device w/out a screen.
+        return responseBuilder
+            .withSpeech(speechText)
+            .withSimpleCard("My Photos", speechText)
+            .build();
+	}
+    
+	private Optional<Response> handleNoAlbums(HandlerInput input) {
+        ResponseBuilder responseBuilder = input.getResponseBuilder();
+        AttributesManager attributesManager = input.getAttributesManager();
+        Map<String,Object> sessionAttributes = attributesManager.getSessionAttributes();
+		ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
+		int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
+		int currentPixelHeight = viewportState.getCurrentPixelHeight().intValueExact();
+		
+    	String googleToken = input.getRequestEnvelope().getContext().getSystem().getUser().getAccessToken();
+    	String imagesResponse, speechText, imagesJson = null;
+
+    	if (googleToken == null )
+    	{
+            speechText = "Please use the Alexa application to link your Google account with My Photos.";
+            return input.getResponseBuilder()
+                    .withSpeech(speechText)
+                    .withLinkAccountCard()
+                    .build();    	
+        } else {
+        		ObjectMapper objectMapper = new ObjectMapper();      		
+    			try {
+            		imagesResponse = PhotoManager.listMedia(googleToken);
+       			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
+       			 	imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
+                	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
+       			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
+                	sessionAttributes.put("IMAGE_SEARCH_BY_TYPE", "NONE");
+                	attributesManager.setSessionAttributes(sessionAttributes);
+    	    	} catch (Exception e) {
+    	    		e.printStackTrace();
+    	    	}
+    	    	speechText = "Here's your most recent images.";
+    	}
+    	
+		 if (AplUtil.supportsApl(input)) {
+             try {
+                 // Retrieve the JSON document and put into a string/object map
+                 ObjectMapper mapper = new ObjectMapper();
+                 TypeReference<HashMap<String, Object>> documentMapType = new TypeReference<HashMap<String, Object>>() {};
+                 Map<String, Object> document = mapper.readValue(new File("apl_image_list_template.json"), documentMapType);
+                 Map<String, Object> data = mapper.readValue(imagesJson, documentMapType);
+
+                 // Use builder methods in the SDK to create the directive.
+                 RenderDocumentDirective renderDocumentDirective = RenderDocumentDirective.builder()
+                         .withToken("ImageListToken")
+                         .withDocument(document)
+                         .withDatasources(data)
+                         .build();
+
+                 return input.getResponseBuilder()
+                         .withSpeech(speechText)
+                         .addDirective(renderDocumentDirective)
+                         .build();
+
+             } catch (IOException e) {
+                 throw new AskSdkException("Unable to read or deserialize the APL document", e);
+             }
+        } else {
+            speechText = "My Photos is designed for viewing images on a device with a screen, such as an Echo Show or Fire TV.";
+        }
         // add the speech to a simple card response and return it for the case of a device w/out a screen.
         return responseBuilder
             .withSpeech(speechText)
