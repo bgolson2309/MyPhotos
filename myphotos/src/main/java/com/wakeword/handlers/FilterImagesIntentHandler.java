@@ -108,7 +108,6 @@ public class FilterImagesIntentHandler implements IntentRequestHandler  {
 		} else {
             return input.getResponseBuilder()
             		.withSpeech(Constants.YOU_HAVENT_BOUGHT_PREMIUM)
- 	                .withShouldEndSession(false)
                     .build();
 		}	        
 	}

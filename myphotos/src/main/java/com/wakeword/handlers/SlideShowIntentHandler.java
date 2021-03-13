@@ -133,7 +133,6 @@ public class SlideShowIntentHandler implements RequestHandler {
 		} else {
             return input.getResponseBuilder()
             		.withSpeech(Constants.YOU_HAVENT_BOUGHT_PREMIUM)
- 	                .withShouldEndSession(false)
                     .build();
 		}
     }

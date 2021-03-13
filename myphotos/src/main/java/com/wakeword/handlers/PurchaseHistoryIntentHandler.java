@@ -40,7 +40,6 @@ public class PurchaseHistoryIntentHandler implements IntentRequestHandler {
         } else {
             return handlerInput.getResponseBuilder()
             		.withSpeech(Constants.YOU_HAVENT_BOUGHT_PREMIUM)
- 	                .withShouldEndSession(false)
                     .build();
         }
     }
