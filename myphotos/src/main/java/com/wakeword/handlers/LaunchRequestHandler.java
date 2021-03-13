@@ -7,6 +7,7 @@ import com.amazon.ask.exception.AskSdkException;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.interfaces.alexa.presentation.apl.RenderDocumentDirective;
+import com.amazon.ask.model.interfaces.viewport.ViewportState;
 import com.amazon.ask.response.ResponseBuilder;
 import com.wakeword.main.Constants;
 import com.wakeword.util.AplUtil;
@@ -16,6 +17,7 @@ import com.wakeword.util.StringUtils;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
 import com.wakeword.dto.Album;
+import com.wakeword.dto.MediaItem;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,16 +53,35 @@ public class LaunchRequestHandler implements RequestHandler  {
         } else {
         		ObjectMapper objectMapper = new ObjectMapper();      		
     			albumsString = PhotoManager.listAlbums(googleToken);
-    			try {
-            		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
-       			 	sessionAttributes.put("ALBUM_UUID_LIST", StringUtils.makeAlbumList(albums));
-       			 	sessionAttributes.put("ALBUM_TITLE_LIST", StringUtils.makeAlbumTitleList(albums));
-                	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
-       			    sessionAttributes.put("IMAGE_UUID_LIST", "");
-            		albumsJson = AplUtil.buildAlbumData(albums);
-    	    	} catch (Exception e) {
-    	    		System.out.println(e.getMessage());
-    	    	}
+    			if (albumsString.length() > 13) {
+    				
+	    			try {
+	            		Album[] albums = objectMapper.readValue(albumsString.substring(13), Album[].class); 
+	       			 	sessionAttributes.put("ALBUM_UUID_LIST", StringUtils.makeAlbumList(albums));
+	       			 	sessionAttributes.put("ALBUM_TITLE_LIST", StringUtils.makeAlbumTitleList(albums));
+	                	sessionAttributes.put("SESSION_VIEW_MODE", "ALBUMS_VIEW");
+	       			    sessionAttributes.put("IMAGE_UUID_LIST", "");
+	            		albumsJson = AplUtil.buildAlbumData(albums);
+	    	    	} catch (Exception e) {
+	    	    		System.out.println(e.getMessage());
+	    	    	}
+    			} else {
+	    			try {
+	    				ViewportState viewportState = input.getRequestEnvelope().getContext().getViewport();
+	    				int currentPixelWidth = viewportState.getCurrentPixelWidth().intValueExact();
+	    				int currentPixelHeight = viewportState.getCurrentPixelHeight().intValueExact();
+	            		String imagesResponse = PhotoManager.listMedia(googleToken);
+	       			 	MediaItem[] media = objectMapper.readValue(imagesResponse.substring(17), MediaItem[].class); 
+	       			 	String imagesJson = AplUtil.buildPhotoData(media, currentPixelWidth, currentPixelHeight, "Your most recent photos");
+	                	sessionAttributes.put("SESSION_VIEW_MODE", "IMAGE_LIST_VIEW");
+	       			    sessionAttributes.put("IMAGE_UUID_LIST", StringUtils.makeImageList(media));
+	                	sessionAttributes.put("IMAGE_SEARCH_BY_TYPE", "NONE");
+	                	attributesManager.setSessionAttributes(sessionAttributes);
+	    	    	} catch (Exception e) {
+	    	    		e.printStackTrace();
+	    	    	}
+    			}
+    				
     	    	speechText = "Welcome to My Images.";
     	}
     	

@@ -34,7 +34,7 @@ public class Constants {
 	public static final String NO_ISP = "There are no in skill products to sell or refund to you right now.";
 	public static final String WHAT_CAN_I_BUY = "Products available for purchase at this time is Premium Access.   Premium Access allows you full navigation, filtering images on categories, searching by time, and full screen image slideshow functionality. If you are ready to buy, say, 'Buy' premium access. So what can I help you with?";
 	public static final String YOU_BOUGHT_PREMIUM = "You purchased Premium Access, and now you can enjoy rich image filtering, searching, viewing and navigation.";
-	public static final String YOU_HAVENT_BOUGHT_PREMIUM = "Premium Access must be purchased for full navigation, filtering images on categories, searching by time, and full screen image slideshow functionality.";
+	public static final String YOU_HAVENT_BOUGHT_PREMIUM = "Premium Access must be purchased for full navigation, filtering images on categories, searching by time, or full screen slideshow functionality.";
 	public static final String CANCEL_ACCEPTED = "Even without Premium Access, you can continue to browse albums and images.";
 
 	   
