@@ -40,7 +40,7 @@ public class ListAlbumsIntentHandler implements IntentRequestHandler  {
 
     	if (googleToken == null || (!PhotoManager.validateToken(googleToken)))
     	{
-            speechText = "Please use the Alexa application to link your Google account with My Photos.";
+            speechText = "Please use the Alexa application to link your Google account with My Images.";
             return input.getResponseBuilder()
                     .withSpeech(speechText)
                     .withLinkAccountCard()
@@ -83,13 +83,13 @@ public class ListAlbumsIntentHandler implements IntentRequestHandler  {
                 throw new AskSdkException("Unable to read or deserialize the APL document", e);
             }
         } else {
-            speechText = "My Photos is designed for viewing images on a device with a screen, such as an Echo Show or Fire TV.";
+            speechText = "My Images is designed for viewing images on a device with a screen, such as an Echo Show or Fire TV.";
         }
 
         // add the speech to a simple card response and return it for the case of a device w/out a screen.
         return responseBuilder
             .withSpeech(speechText)
-            .withSimpleCard("My Photos", speechText)
+            .withSimpleCard("My Images", speechText)
             .build();
 	}
 }
